@@ -1,0 +1,21 @@
+5. See ex_5.cpp
+
+6. See ex_6.cpp
+
+7. Function overloading allows similar operations to be performed on different data types
+   ie. by calling functions with the same name which multiply two numbers, you are able
+   to use the same function name regardless of the type of the argument
+
+8. See ex_8.cpp
+
+9. See ex_9.cpp
+
+10. a) keyword 'class' or keyword 'typename' are not present before the first use of variable 'T'
+       - first line should be template <class A>
+    b) The stream extraction operator is being used in place of the stream insertion operator
+       - change >> to <<
+    c) variable T should replace all instances of int in the template
+       - change occurances of 'int' to 'T'
+    d) If the intent was to create two overloaded functions, one to process int's and one
+       to process double's, then the argument of the first overloaded function is incorrect
+       - change 'int' to 'double' on the first line

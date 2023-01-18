@@ -1,0 +1,14 @@
+1. a) overloading
+   b) unary scope resolution operator
+   c) template
+   d) UML
+   e) Object Oriented Design
+   f) Classes
+
+2. A function prototype would contain a parameter type declaration such as double &
+   if the intent was for the function to be passed a variable by reference instead of by value
+   (ie. if the intent is to modify the value of the original variable)
+
+3. True. XX WRONG False.
+
+4. See ex_4.cpp
