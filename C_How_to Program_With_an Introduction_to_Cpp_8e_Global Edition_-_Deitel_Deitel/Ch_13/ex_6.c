@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+#define MINIMUM2(x, y) if ((x) < y) { printf("%s%d\n", "Minimum = ", x); } else {printf("%s%d\n", \
+			                     "Minimum = ", y);}
+
+int main(void)
+{
+  int x, y;
+  
+  puts("Enter two integers:");
+  scanf("%d%d", &x, &y);
+
+  MINIMUM2(x, y);
+}

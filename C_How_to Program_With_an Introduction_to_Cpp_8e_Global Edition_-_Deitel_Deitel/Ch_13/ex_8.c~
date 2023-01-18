@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+#define SIZE 100
+#define PRINT puts(string);
+
+int main(void)
+{
+  char string[SIZE];
+  puts("Enter a string:");
+  fgets(string, SIZE, stdin);
+
+  PRINT
+}

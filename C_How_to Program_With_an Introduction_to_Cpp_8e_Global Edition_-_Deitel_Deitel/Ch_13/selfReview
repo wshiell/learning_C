@@ -1,0 +1,43 @@
+1. a) #
+   b) #else #elif
+   c) #define
+   d) white space
+   e) #undef
+   f) #ifdef, #ifndef
+   g) conditional compilation
+   h) #error XX WRONG - assert
+   i) #include
+   j) ##
+   k) #
+   l) backlash, \
+   m) #line
+
+2. #include <stdio.h>
+
+   int main(void)
+   {
+     printf("__LINE__ = %d\n", __LINE__);
+     printf("__FILE__ = %s\n", __FILE__);
+     printf("__TIME__ = %s\n", __TIME__);
+     printf("__DATE__ = %s\n", __DATE__);
+     printf("__STDC__ = %s\n", __STDC__);
+   }
+
+3. a) #define YES 1
+   b) #define NO 0
+   c) #include "common.h"
+   d) #line 3000 "file1.c"
+   e) #if true != NULL XX WRONG - #if defined(TRUE)
+        #undef TRUE
+	#define TRUE 1
+      #endif
+   f) #ifdef TRUE
+        #undef TRUE
+	#define TRUE 1
+      #endif
+   g) #if true != 0 WRONG XX - #if TRUE
+        #define FALSE 0
+      #else
+        #define FALSE 1
+      #endif
+   h) #define CUBE_VOLUME(x) x * x * x WRONG XX - #define CUBE_VOLUME(x) ((x) * (x) * (x))
