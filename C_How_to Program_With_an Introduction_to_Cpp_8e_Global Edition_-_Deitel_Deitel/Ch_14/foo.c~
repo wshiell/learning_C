@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int main(void)
+{
+  int i = 1, j;
+
+  goto start;
+    
+ star:
+  printf("%s ", "*");
+  goto start;
+    
+ newLine:
+  printf("%s", "\n");
+  goto start;
+    
+ start:
+
+  j = 0;
+  
+  if (i < 30) {
+    i++;
+    goto star;
+  }
+  else if ((i % 6) == 0 && i != 30) {
+    i++; 
+    goto newLine;
+  }
+  else {
+    goto end;
+  }
+ end:
+  puts("");
+}

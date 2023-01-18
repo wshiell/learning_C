@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main(int argc, char *argv[])
+{
+  if (argc != 3) {
+    puts("Usage: mycopy infile outfile");
+  }
+  else {
+     FILE * inputPtr;
+
+    if ((inputPtr = (argv[1], "w")) != NULL) {
+      FILE *outputPtr;
+
+      if ((outputPtr = (argv[2], "r")) != NULL) {
+	;
+	fclose(outputPtr);
+      }
+      else {
+	printf("%s%s%s", "File \"", arg[2], "\" could not be opened.");      
+      }
+      
+      fclose(inputPtr);
+    }
+    else {
+      printf("%s%s%s", "File \"", arg[1], "\" could not be opened.");
+    }
+  }
+}

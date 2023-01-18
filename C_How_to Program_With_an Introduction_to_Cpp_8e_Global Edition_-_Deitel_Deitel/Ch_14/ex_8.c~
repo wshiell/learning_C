@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+int main(void)
+{
+  int i = 1, j;
+
+  goto start;
+    
+ star:
+  printf("%s ", "*");
+  goto start;
+    
+ newLine:
+  printf("%s", "\n");
+  goto start;
+
+ space:
+  printf("%s ", " ");
+  goto start;
+    
+ start:
+
+  j = 0;
+  
+  if ((i >= 1 && i <= 5) ||
+      (i >= 25 && i < 30) ||
+      ((i % 7 + j) == 0) ||
+      ((i % 11 + j) == 0)) {
+
+    if ((i % 11) == 0) {
+      j++;
+    }
+    i++;
+    goto star;
+  }
+  else if ((i % 6) == 0 && i != 30) {
+    i++; 
+    goto newLine;
+  }
+  else if (i < 29) {
+    i++;
+    goto space;
+  }
+  else {
+    goto end;
+  }
+ end:
+  puts("");
+}
