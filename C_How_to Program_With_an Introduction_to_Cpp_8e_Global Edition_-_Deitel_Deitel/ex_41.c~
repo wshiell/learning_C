@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main(void)
+{
+  float currentPopulation = 7.2, futurePopulation, change;
+  float growthRate = 0.011;
+
+  puts("%20s%20s%20s\n", "Year", "Population in Year", "Population Change");
+  puts("************************************************************\n");
+
+  for (int year = 1; year <= 75; year++) {
+    previousPopulation = currentPopulation;
+    currentPopulation += currentPopulation * growthRate;
+    change = currentPopulation - previousPopulation;
+    printf("%20d%20f%20f\n", year, currentPopulation, change);
+  }
+}

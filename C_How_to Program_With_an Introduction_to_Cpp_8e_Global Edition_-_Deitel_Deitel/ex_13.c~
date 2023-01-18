@@ -1,0 +1,9 @@
+#include <stdio.h>
+#include <time.h>
+
+int main(void)
+{
+  int a = time(NULL), b = time(NULL), difference = b - a;
+
+  printf("Run time = %d\n", difference);
+}
