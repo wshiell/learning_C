@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <string.h>
+
+#define SIZE 80
+
+int main(void)
+{
+  FILE *fPtr;
+  char sentence[SIZE];
+  char fileName[20] = "input.dat";
+
+  if ((fPtr = fopen(fileName, "wb")) == NULL) {
+    puts("File could not be opened.");
+  }
+  else{
+
+    puts("Enter a sentence:");
+    fgets(sentence, 80, stdin);
+    sentence[strlen(sentence) - 1] = '\0';
+    fwrite(&sentence, sizeof(sentence), 1, fPtr);
+  }
+
+  fclose(fPtr);
+  
+  if ((fPtr = fopen(fileName, "rb")) == NULL) {
+    puts("File could not be opened.");
+  }
+  else{
+
+    fread(&sentence, sizeof(sentence), 1, fPtr);
+    printf("%s\n", sentence);
+  }
+
+  fclose(fPtr);
+}

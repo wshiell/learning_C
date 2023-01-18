@@ -1,0 +1,36 @@
+5. a) files
+   b) record
+   c) record key
+   d) field
+   e) stdin, stdout, stderr
+   f) fputchar()
+   g) fputs()
+   h) fwrite()
+   i) rewind()
+
+6. a) True.
+   b) False. Characters are designed to be readable by humans more readily than are bits. So people
+      prefer to manipulate characters.
+   c) True.
+   d) True.
+   e) False. Data items become smaller and simpler as you progress from fields to characters to bits.
+   f) False. A record key allows a program to locate the position of a record in a random-access file.
+   g) False. Storing data in a single file is a bad idea for many reasons. It is not a safe way to store
+      data (the file could be lost or corrupted, and all the company's data would then be done), and it
+      is not a very efficient way to store the data, as not all the data in the file might be needed
+      most of the time.
+   h) False. Files are referred to by a file pointer, which points to the file structure associated with
+      the file.
+   i) True.
+
+7. See ex_7.c
+
+8. See ex_8.c
+
+9. See ex_8.c
+
+10. See ex_10.c
+
+11. 
+	 
+

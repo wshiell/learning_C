@@ -1,0 +1,44 @@
+1. a) fclose()
+   b) fscanf()
+   c) fgetc()
+   d) fputs() XX WRONG fgets()
+   e) fopen()
+   f) fread()
+   g) fseek()
+
+2. a) False. You can use fscanf() to read data from the standard input by using stdin as the first
+      argument
+   b) False. fopen() is only used to open standard input when it uses a FILE structure as a stream
+   c) False. A file will be closed by the operating system if fclose() is not called, but it is
+      recommended that fclose() be used
+   d) False. Function rewind() can be used to go back to the beginning of the file (or function fseek())
+   e) True.
+   f) False. If a sequential access file is updated, data after the point at which the update occurs
+      may be overwritten
+   g) True.
+   h) False. Records in a random access file are all of the same length (determined by using the sizeof()
+      operator in conjunction with the object being stored in the file)
+   i) False. fseek() may seek relative to the beginning, end or current position in a file using
+      SEEK_SET, SEEK_CUR or SEEK_END.
+
+3. a) ofPtr = fopen("oldmast.dat", "r");
+   b) tfPtr = fopen("trans.dat", "r");
+   c) nfPtr = fopen("newmast.dat", "w");
+   d) fread(&accountNum, name, &currentBalance, sizeof(), ofPtr);
+      XX WRONG fread(ofPtr, "%d%s%lf", &accountNum, name, &currentBalance);
+   e) fread( &accountNum, &dollarAmount, sizeof(), tfPtr);
+   XX WRONG fread(tfPtr, "%d%f", &accountNum, &dollarAmount);
+   f) fwrite(&accountNum, name, &currentBalance, sizeof(), nfPtr);
+   XX WRONG
+      fwrite(nfPtr, "%d %s %lf", accountNum, name, balance);
+
+4. a) Because the file "payables.dat" has not been opened, referencing it in the program will cause
+      errors. To correct this, add the statement
+      fopen("payables.dat", "r");
+      at the start of the program
+   b) The funnction open() does not exist. Use fopen()
+   c) scanf() is being used, but fscanf() should be used instead. Also, the wrong pointer is being used,
+      payPtr should be used to refer to the correct file.
+   d) The write mode "w" is being used, which will discard all data in the file. Use "r+" instead.
+   e) The write mode "w+" is being used, which will create a new file for reading and updating, *or*
+      discard the data in the current file. Use "a" instead

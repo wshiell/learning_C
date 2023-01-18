@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main(void)
+{
+  FILE * phPtr;
+  char *priorityOne[] = {};
+  char *priorityTwo[] = {};
+  char *priorityThree[] = {};  
+  char **phishingList[3];
+
+  phishingList[0] = &priorityOne[0];
+  phishingList[1] = &priorityTwo[0];
+  phishingList[2] = &priorityThree[0];
+
+  if ((phPtr = fopen("testlist.txt", "r")) == NULL) {
+    puts("File cannot be opened.");
+  }
+  else {
+    puts("Check");
+  }
+
+  fclose(phPtr);
+}

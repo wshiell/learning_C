@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main(void)
+{
+  FILE *mastPtr, *transPtr;
+
+  if ((mastPtr = fopen("master.dat", "w")) == NULL) {
+    puts("File could not be opened.");
+  }
+  else {
+
+    fprintf(mastPtr, "%d %s %s %lf\n", 100, "Alan", "Jones", 348.17);
+    fprintf(mastPtr, "%d %s %s %lf\n", 300, "Mary", "Smith", 27.19);
+    fprintf(mastPtr, "%d %s %s %lf\n", 500, "Sam", "Sharp", 0.00);
+    fprintf(mastPtr, "%d %s %s %lf\n", 700, "Suzy", "Green", -14.22);    
+  }
+
+  fclose(mastPtr);
+
+  if ((transPtr = fopen("transaction.dat", "w")) == NULL) {
+    puts("File could not be opened.");
+  }
+  else {
+
+    fprintf(transPtr, "%d %lf\n", 100, 27.14);
+    fprintf(transPtr, "%d %lf\n", 300, 62.11);
+    fprintf(transPtr, "%d %lf\n", 500, 100.56);
+    fprintf(transPtr, "%d %lf\n", 900, 81.17);
+  }
+
+  fclose(transPtr);
+}
+

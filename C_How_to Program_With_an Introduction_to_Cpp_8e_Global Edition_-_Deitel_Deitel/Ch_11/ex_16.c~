@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main(void)
+{
+  FILE *dtPtr;
+  char *dataTypes[13] = { "char", "unsigned char", "short int", "unsigned short int",
+			  " int", "unsigned int", "long int", "unsigned long int",
+			  "float", "double", "long double" };
+  int typeSizes[13] = { sizeof(char), sizeof(unsigned char), sizeof(short int),
+ 		        sizeof(unsigned short int), sizeof( int), sizeof(unsigned int),
+		        sizeof(long int), sizeof(unsigned long int),
+		        sizeof(float), sizeof(double), sizeof(long double) };
+		       
+  if ((dtPtr = fopen("datasize.dat", "wb")) == NULL) {
+    puts("File could not be opened.");
+  }
+  else {
+
+  }
+
+  fclose(dtPtr);
+}

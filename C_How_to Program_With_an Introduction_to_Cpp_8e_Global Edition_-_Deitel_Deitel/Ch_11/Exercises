@@ -1,0 +1,98 @@
+5. a) files
+   b) record
+   c) record key
+   d) field
+   e) stdin, stdout, stderr
+   f) fputchar()
+   g) fputs()
+   h) fwrite()
+   i) rewind()
+
+6. a) True.
+   b) False. Characters are designed to be readable by humans more readily than are bits. So people
+      prefer to manipulate characters.
+   c) True.
+   d) True.
+   e) False. Data items become smaller and simpler as you progress from fields to characters to bits.
+   f) False. A record key allows a program to locate the position of a record in a random-access file.
+   g) False. Storing data in a single file is a bad idea for many reasons. It is not a safe way to store
+      data (the file could be lost or corrupted, and all the company's data would then be done), and it
+      is not a very efficient way to store the data, as not all the data in the file might be needed
+      most of the time.
+   h) False. Files are referred to by a file pointer, which points to the file structure associated with
+      the file.
+   i) True.
+
+7. See ex_7.c
+
+8. See ex_8.c
+
+9. See ex_8.c
+
+10. See ex_10.c
+
+11. a) FILE *naPtr;
+
+       struct person ind = { "", "", "" };
+
+       for (unsigned int i = 1; i <= 100; ++i) {
+
+         fwrite(&ind, sizeof(struct person), 1, naPtr);
+       }
+    b) for (unsigned int i = 1; i <= 10; ++i) {
+
+         puts("Enter first name, last name and age:);
+         fscanf(stdin, "%15s%15s%4s", ind.firstName, ind.lastName, ind.age);
+
+         fwrite(&ind, sizeof(struct person), 1, naPtr);
+       }
+    c) unsigned int record;
+
+       puts("Enter record number:");
+       scanf("%u", &record);
+
+       fseek(naPtr, (record - 1) * sizeof(struct person), 1, SEEK_SET);
+
+       fread(&ind, sizeof(struct person), 1, naPtr);
+
+       if (ind.firstName == "unassigned") {
+         puts("No data.");
+       }
+       else {
+         puts("Enter first name, last name and age:);
+         fscanf(stdin, "%15s%15s%4s", ind.firstName, ind.lastName, ind.age);
+	 
+	 fwrite(&ind, sizeof(struct person), 1, naPtr);
+       }
+     d)  puts("Enter record number:");
+         scanf("%u", &record);
+
+         fseek(naPtr, (record - 1) * sizeof(struct person), 1, SEEK_SET);
+
+         fread(&ind, sizeof(struct person), 1, naPtr);
+
+         if (ind.firstName == "unassigned") {
+           puts("No data.");
+         }
+         else {
+           struct person ind = { "", "", "" };	 
+           fwrite(&ind, sizeof(struct person), 1, naPtr);
+         }
+
+12. See ex_12.c
+    There is an issue with deleting the last record, but I can't work out what it is. This will
+    need to be reviewed.
+
+13. See ex_13.c
+
+14. Cannot complete - do not have access to a computerised dictionary
+
+15. See ex_15.c
+
+16. See ex_16.c
+
+17. COMPLETE AFTER FINISHING 'SIMPLETRON' EXERCISES IN CHAPTER 7
+
+18. See ex_18.c
+
+19. See ex_19.c

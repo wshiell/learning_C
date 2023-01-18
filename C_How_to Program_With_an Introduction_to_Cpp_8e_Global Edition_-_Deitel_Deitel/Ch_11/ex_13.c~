@@ -1,0 +1,62 @@
+#include <stdio.h>
+
+void writeNumber(FILE * phonePtr);
+
+int main(void)
+{
+  FILE * phonePtr;
+
+  if ((phonePtr = fopen("numberlist.dat", "wb")) == NULL) {
+    puts("File could not be opened.");
+  }
+  else {
+    writeNumber(phonePtr);
+  }
+
+  fclose(phonePtr);
+}
+
+void writeNumber(FILE * phonePtr)
+{
+  char two[3] = { 'A', 'B', 'C' };
+  char three[3] = { 'D ', 'E', 'F' };
+  char four[3] = { 'G', 'H', 'I' };
+  char five[3] = { 'J', 'K', 'L' };
+  char six[3] = { 'M', 'N', 'O' };
+  char seven[4] = { 'P', 'Q', 'R', 'S' };
+  char eight[3] = { 'T', 'U', 'V' };
+  char nine[4] = { 'W', 'X', 'Y', 'Z'};
+
+  for (size_t a = 0; a < 3; ++a) {
+
+      for (size_t b = 0; b < 3; ++b) {
+
+	  for (size_t c = 0; c < 3; ++c) {
+
+	      for (size_t d = 0; d < 3; ++d) {
+
+		  for (size_t e = 0; e < 3; ++e) {
+
+		      for (size_t f = 0; f < 4; ++f) {
+
+			for (size_t g = 0; g < 3; ++g) {
+
+			  for (size_t h = 0; h < 4; h++) {
+			    fputc(phonePtr, two[a]);
+			    fputc(phonePtr, three[b]);
+			    fputc(phonePtr, four[c]);
+			    fputc(phonePtr, five[d]);
+			    fputc(phonePtr, six[e]);
+			    fputc(phonePtr, seven[f]);
+			    fputc(phonePtr, eight[g]);
+			    fputc(phonePtr, nine[h]);
+			    fputc('\n');
+			  }
+			  }
+		      }
+		  }
+	      }
+	  }
+      }    
+  }
+}
