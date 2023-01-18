@@ -1,0 +1,74 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {
+  char character;
+  struct node *nextPtr;
+};
+
+typedef struct node Node;
+typedef Node *NodePtr;
+
+char instructions(void);
+/* void concatenate(); */
+void addCharacter(ListNodePtr *startPtr, char value);
+void printList(ListNodePtr startPtr);
+
+int main(void)
+{
+  char value;
+  ListNodePtr startPtr = NULL;
+
+  value = instructions();
+  addCharacter(&startPtr, value);
+  printList(startPtr);
+}
+
+char instructions(void)
+{
+  char c;
+  printf("%s\n%s%s", "Enter a character:", "> ");
+  scanf(" %c", &c);
+
+  return c;
+}
+
+void addCharacter(ListNodePtr *startPtr, char value)
+{
+  ListNodePtr newPtr = malloc(sizeof(node));
+
+  if (newPtr != NULL) {
+    newPtr->character = value;
+    newPtr->nextPtr = NULL;
+  }
+  else {
+    printf("%s\n", "No memory available");
+  }
+
+  ListNodePtr previousPtr = NULL;
+  ListNodePtr currentPtr = startPtr;
+  
+  while (currentPtr != NULL && value > currentPtr->charcter) {
+    previousPtr = currentPtr;
+    currentPtr = currentPtr->nextPtr;
+  }
+
+  if (currentPtr == NULL) {
+    currentPtr = newPtr;
+    currentPtr->nextPtr = NULL;
+  }
+  else {
+    previousPtr->nextPtr = newPtr;
+    newPtr->nextPtr = currentPtr;
+  }
+}
+
+void printList(ListNodePtr startPtr)
+{
+  ListNodePtr currentPtr = startPtr;
+
+  while (currentPtr != NULL) {
+    printf("%c%s", currentPtr->character, " --> ");
+    currentPtr = currentPtr->nextPtr;
+  }
+}

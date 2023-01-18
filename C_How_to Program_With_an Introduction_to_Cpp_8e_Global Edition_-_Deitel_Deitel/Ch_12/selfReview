@@ -1,0 +1,75 @@
+1. a) referential
+   b) malloc
+   c) stack
+   d) predicate
+   e) First In, First Out (FIFO)
+   f) link
+   g) free
+   h) queue
+   i) tree
+   j) Last In, First Out (LIFO)
+   k) binary
+   l) parent XX WRONG - PARENT NODE
+   m) null pointer, child XX WRONG - CHILD, SUBTREE
+   n) leaf 
+   o) inOrder, preOrder, postOrder
+
+2. A link list can have a node added or removed from any position in the list
+   A stack can only add or remove nodes from the top (first node)
+
+3. A stack can only add or remove a node from the top. A queue can add a node at the tail (start),
+   and remove a node at the head (end)
+
+4. a) GradeNodePtr startPtr = NULL;
+   b) GradeNodePtr = newPtr;
+
+     newPtr = malloc(sizeof(GradeNode));
+
+     strcpy(newPtr->lastName, "Jones";
+     newPtr->grade = 91.5;
+     newPtr->nexPtr = NULL;
+     
+   c) GradeNodePtr previousPtr, currentPtr;
+
+      Inserting "Adams":
+      previousPtr = NULL;
+      currentPtr = startPtr;
+
+      newPtr->nexPtr = currentPtr;
+      startPtr = newPtr;
+      
+      Inserting "Thompson":
+      
+      previousPtr = currentPtr;
+      currentPtr = NULL;
+
+      newPtr->nexPtr = NULL;
+      previousPtr->nextPtr = newPtr;
+      
+      Inserting "Pritchard":
+      previousPtr = currentPtr;
+      currentPtr = currentPtr-nexPtr;
+      
+      newPtr->nextPtr = currentPtr;
+      previousPtr->nexPtr = newPtr;
+      
+      
+
+   d) currentPtr = startPtr;
+      while (currentPtr != NULL) {
+        printf("%s\n%.2lf\n", currentPtr->lastName, currentPtr->grade);
+	currentPtr = currentPtr->nextPtr;
+      }
+   e) currentPtr = startPtr;
+      while (currentPtr != NULL) {
+        char *tempString = currentPtr->lastName;
+	double tempGrade = currentPtr->grade;
+        GradeNodePtr tempPtr = currentPtr;
+        currentPtr = currentPtr->nextPtr;
+        free(tempPtr);
+      }
+      startPtr = NULL;
+
+5. in-order: 11, 18, 19, 28, 32, 40, 44, 49, 69, 71, 72, 83, 92, 97, 99
+   pre-order: 49, 28, 18, 11, 19, 40, 32, 44, 83, 71, 69, 72, 87, 92, 99
+   post-order: 11, 19, 18, 32, 44, 40, 28, 69, 72, 71, 92, 99, 97, 83, 49

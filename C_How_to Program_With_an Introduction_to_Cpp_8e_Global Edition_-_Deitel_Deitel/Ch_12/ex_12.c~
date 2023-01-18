@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct stackNode {
+  char data;
+  struct stackNode *nextPtr;
+};
+
+typedef struct stackNode StackNode;
+typedef StackNode *StackNodePtr;
+
+void convertToPostfix(char infix[], char postfix);
+int isOperator(char c);
+int precedence(char operator1, char operator2);
+void push(StackNodePtr *topPtr, char value);
+char pop(StackNodePtr *topPtr);
+char stackTop(StackNodePtr topPtr);
+int isEmpty(StackNodePtr topPtr);
+void printStack(StackNodePtr topPtr);
+
+int main(void)
+{
+  
+}
+
+void convertToPostfix(char infix[], char postfix)
+{
+
+}
+
+int isOperator(char c)
+{
+  
+}
+
+int precedence(char operator1, char operator2)
+{
+  
+}
+
+void push(StackNodePtr *topPtr, char value)
+{
+  
+}
+
+char pop(StackNodePtr *topPtr)
+{
+  
+}
+
+char stackTop(StackNodePtr topPtr)
+{
+  
+}
+
+int isEmpty(StackNodePtr topPtr)
+{
+  
+}
+
+void printStack(StackNodePtr topPtr)
+{
+  
+}
