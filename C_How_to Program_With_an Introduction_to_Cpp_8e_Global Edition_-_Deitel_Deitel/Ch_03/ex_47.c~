@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+int main( void )
+{
+
+  int max_rate, target_rate;
+  int birthDay, birthMonth, birthYear;
+  int currentDay, currentMonth, currentYear = 2018;
+  int totalDays, totalMonths, totalYears;
+  int day, month, year;
+  int ageDays, ageMonths, ageYears;
+  int days, daysMonth, daysYear;
+  float currentAge;
+
+  puts( "Enter birthday (day/month/year):" );
+  scanf( "%d%d%d", &birthDay, &birthMonth, &birthYear );
+
+  if( currentDay < birthDay ) {
+    month = currentMonth - 1;
+    day = birthDay - currentDay;
+  }
+  if( currentMonth < birthMonth ) {
+    year = currentYear - 1;
+    month = birthMonth - currentMonth;
+  }
+
+  currentMonth = month;
+  currentYear = year;
+
+  totalYears = currentYear - birthYear;
+  totalMonths = month;
+  totalDays = day;
+
+  printf( "Age in (days/months/years): %d/%d/%d/\n" );
+
+  /* ageYears = ( float ) days / 365.24; */
+  /* max_rate = 220 - ageYears; */
+
+  /* printf( "Age (in years): %f", ageYears ); */
+  /* printf( "Maximum heart rate: %d.\n", max_rate ); */
+  /* printf( "Target rate range: %f to %f.\n", .5 * max_rate, .85 * max_rate ); */
+}

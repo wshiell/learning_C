@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main ( void )
+{
+
+  int c;
+  int i = 1;
+
+  puts( "What's my favourite number?" );
+  scanf( "%d", &c );
+  
+  while( i < c ) {
+    printf( "%d, A! A! A!\n", i++ );
+  }
+
+  printf( "%d!!!!!! *thunder noise*", c );
+}
