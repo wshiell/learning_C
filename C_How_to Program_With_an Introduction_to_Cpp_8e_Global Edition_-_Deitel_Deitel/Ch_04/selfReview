@@ -1,0 +1,57 @@
+1. a) definite
+   b) indefinite
+   c) counter
+   d) continue
+   e) break
+   f) continuation condition X SWITCH SELECTION STATEMENT
+
+2. a) false. If it is not included, the program will just
+      continue
+      after the switch statement
+   b) false. Providing the default case is included at the end
+      of the switch, the program will continue after the switch
+      whether a break statement is included or not
+   c) false. It is true only if both operands are true
+   d) true.
+
+3. a) for ( unsigned int counter = 1; counter <= 99;        X
+            counter +=2 ) {
+        unsigned int sum = 0; <--- DECLARE OUTSIDE OF FOR LOOP
+        sum = counter;] <--- SHOULD BE +=    
+      }
+   b) double x = 333.546372;
+      printf("%-15.1d\n", x); // 33.5                       X
+      printf("%-15.2d\n", x); // 33.55              %f NOT %d
+      printf("%-15.3d\n", x); // 33.546
+      printf("%-15.4d\n", x); // 33.5464
+      printf("%-15.5d\n", x); // 33.54637
+   c) double x = 2.5;                                       X
+      int y = 3;                                 
+                         *------------------  MISSING d IN %d
+      printf("x^y = %10.2\n", pow(x, y)); // 15.63  
+   d) unsigned int x = 1;
+      while (x <= 20) {
+        printf("%u\t", x);
+	if (x % 5 == 0) {
+	  puts("");
+        }
+	x++;
+      }
+   e) for (unsigned int x; x <= 20; x++) {                  X
+        printf("%u\t", x);                DIDN'T INITIALISE x
+	if ( x % 5 == 0) {
+	  puts("");
+        }
+      }
+
+4. a) - missing left brace after condition/semi-colon after
+        condition: remove semi-colon, add left brace.
+   b) - using a floating point value in an equality statement
+        (floating point values should not be used in equality
+	or relational statements): change to an integer value.
+   c) - break statement missing after first case; actions for
+        the first two cases will execute if case 1 is true:
+	add break statement.
+   d) - n is never equal to 10 in the conditional, so the while
+        loop will never print the number 10: change to n <= 10.
+	

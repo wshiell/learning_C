@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main(void)
+{
+
+  if (!(x < 5) && !(y >= 7) == !((x < 5) || (y >= 7))){
+    printf("Statement true\n");
+  }
+  else {
+    printf("Statement false\n");
+  }
+  
+  if (!(a == b) || !(g != 5) ==!((a == b) && (g != 5))) {
+    printf("Statement true\n");
+  }
+  else {
+    printf("Statement false\n");
+  }
+
+  if (!((x <= 8) && (y > 4)) == !((x <= 8) || (y > 4))) {
+    printf("Statement true\n");
+  }
+  else {
+    printf("Statement false\n");
+  }
+  
+  if (!((i > 4) || (j <= 6)) ==!((i > 4) && (j <= 6))) {
+    printf("Statement true\n");
+  }
+  else {
+    printf("Statement false\n");
+  }
+}

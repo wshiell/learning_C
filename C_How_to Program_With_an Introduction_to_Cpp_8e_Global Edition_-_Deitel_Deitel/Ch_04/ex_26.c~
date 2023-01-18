@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main(void)
+{
+  float pi;
+
+  printf("%7%22\n\n", "nth term", "value of pi");
+  printf("%s\n", "*****************************");
+
+  for (unsigned int counter = 0; counter <= 10; counter++) {
+    pi = (float) 4 / (1 + counter * 2); 
+
+    printf("%7u%22f", counter + 1, pi);
+    puts("");
+  }
+}

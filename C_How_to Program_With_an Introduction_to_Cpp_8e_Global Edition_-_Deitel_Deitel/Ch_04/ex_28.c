@@ -1,0 +1,69 @@
+#include <stdio.h>
+
+int main(void)
+{
+  double managerWage = 1500, commissionWage, pieceWage, hourlyWage;
+  double hourlyRate = 15.50, hours, piecePrice = 2.33, weeklySales;
+  int paycode, pieces;
+
+  puts("\n****************************************");
+  puts("\n            Welcome to the\n");
+  puts("\n      WADECO. Employee Wage Database\n");
+  puts("****************************************");
+  printf("%s","\nEnter Employee Paycode (-1 to quit):\n");
+  scanf("%d", &paycode);
+
+  while (paycode != -1 ) {
+
+    switch (paycode) {
+
+    case 1:
+      puts("****************************************");
+      puts("\nPaycode #1: Manager.\n");
+      printf("Salary:\t$%.2f\n\n", managerWage);
+      puts("****************************************");      
+      break;
+
+    case 2:
+      puts("****************************************");      
+      puts("\nPaycode #2: Hourly Worker.\n");
+      puts("Enter hours worked:");
+      scanf("%lf", &hours);
+
+      if (hours <= 40) {
+	hourlyWage = hourlyRate * hours;
+      }
+      else {
+	hourlyWage = 40 * hourlyRate + (hours - 40) * hourlyRate * 1.5;
+      }
+      printf("\nSalary:\t$%.2f\n\n", hourlyWage);
+      puts("****************************************");      
+      break;
+
+    case 3:
+      puts("****************************************");      
+      puts("\nPaycode #3: Commission Worker.\n");
+      puts("Enter gross weekly sales:");
+      scanf("%lf", &weeklySales);
+      commissionWage = 250 + .057 * weeklySales;
+      printf("\nSalary:\t$%.2f\n\n", commissionWage);
+      puts("****************************************");      
+      break;
+
+    case 4:
+      puts("****************************************");
+      puts("\nPaycode #4: Piece Worker.\n");
+      puts("Enter quantity produced:");
+      scanf("%d", &pieces);
+      pieceWage = pieces * piecePrice;
+      printf("\nSalary:\t$%.2f\n\n", pieceWage);
+      puts("****************************************");      
+      break;
+    }
+    printf("%s","\nEnter Employee Paycode (-1 to quit):\n");
+    scanf("%d", &paycode);
+  }
+  puts("\n****************************************");
+  puts("\n          Program Terminated.\n\n           Have a nice day :)");
+  puts("\n****************************************\n");
+}

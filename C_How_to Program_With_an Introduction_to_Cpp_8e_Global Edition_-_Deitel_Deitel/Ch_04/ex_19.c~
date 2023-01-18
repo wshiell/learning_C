@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int main(void)
+{
+  unsigned int retailPrice, productNumber, quantitySold, totalRetailValue;
+
+  for (unsigned int day = 1; day <= 7; day++) {
+    puts("Enter product number and quantity sold:");
+    scanf("%u%u", &productNumber, &quantitySold);
+
+    switch (productNumber) {
+
+    case '1':
+      retailPrice = 2.98;
+      break;
+    case '2':
+      retailPrice = 4.50;
+      break;
+    case '3':
+      retailPrice = 9.98;
+      break;
+    case '4':
+      retailPrice = 4.49;
+      break;
+    case '5':
+      retailPrice = 6.87;
+      break
+	}
+
+    totalRetailValue += retailPrice * quantitySold;
+  }
+
+  printf("Total retail value for last week is: %u\n", totalRetailValue);
+}

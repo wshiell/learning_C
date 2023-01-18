@@ -1,0 +1,6 @@
+#include <stdio.h>
+
+int main(void)
+{
+  printf("%12s%12s%12s%12s", "Decimal", "Binary", "Octal". "Hexadecimal");
+}

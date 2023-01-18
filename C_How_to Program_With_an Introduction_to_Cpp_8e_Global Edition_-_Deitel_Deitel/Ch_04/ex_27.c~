@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main(void)
+{
+
+  for (unsigned int side1; side1 <= 5; side1++) {
+    for (unsigned int side2; side2 <= 5; side2++) {
+      for (unsigned int hyp; hyp <= 5; hyp++) {
+	if (side1 * side1 == side2 * side2 + hyp * hyp) {
+	  printf("Sides are a pythagorean triplet");
+	}
+	if (side2 * side2 == side1 * side1 + hyp * hyp) {
+	  printf("Sides are a pythagorean triplet");	  
+	}
+	if (hyp * hyp == side1 * side1 + side2 * side2) {
+	  printf("Sides are a pythagorean triplet");	  
+	}
+      }
+    }
+  }
+}
