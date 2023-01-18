@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+void hanoi(int numberOfDiscs, int initialPeg, int holdingPeg, int finalPeg);
+
+int main(void)
+{
+  int numberOfDiscs, int initialPeg = 1, int holdingPeg = 2, int finalPeg = 1;
+
+  puts("Enter number of discs:");
+  scanf("d%", &numberOfDiscs);
+
+  hanoi(numberOfDiscs, initialPeg, holdingPeg, finalPeg);
+}
+
+void hanoi(int numberOfDiscs, int initialPeg, int holdingPeg, int finalPeg)
+{
+  int initPeg, holdPeg, finPeg;
+
+  else {
+
+    for (int counter = numberOfDiscs; counter >= numberOfDiscs; counter--) {
+
+      initPeg = initialPeg;
+      holdingPeg = finalPeg;
+      finalPeg = holdingPeg;
+    
+      hanoi((numberOfDiscs - 1), initPeg, holdPeg, finPeg);
+
+      initPeg = initialPeg;
+      holdingPeg = finalPeg;
+      finalPeg = holdingPeg;
+      
+      printf("%d --> %d\n", initialPeg, finalPeg);
+    }
+  if (numberOfDiscs == 1) {
+    printf("%d --> %d\n)", initialPeg, finalPeg);
+  }
+
+
+  }
+}

@@ -1,0 +1,81 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int askQuestion(void);
+
+int main(void)
+{
+  int answer;
+  
+  answer = askQuestion();
+
+  while (answer != -1) {
+    answer = askQuestion();
+  }
+}
+
+int askQuestion(void)
+{
+  int answer, guess, number1, number2;
+  int correct, incorrect;
+  
+  srand(time(NULL));
+
+  number1 = 1 + rand() % 9;
+  number2 = 1 + rand() % 9;
+
+  puts("Multiplication Practice Quiz (type -1 to quit)\n");
+  
+  printf("How much is %d times %d?\n", number1, number2);
+  scanf("%d", &guess);
+  
+  answer = number1 * number2;
+
+  if (guess != -1) {
+
+    while (guess != answer) {
+
+      incorrect = 1 + rand() % 4;
+      printf("Incorrect %d***\n", incorrect);
+      switch (incorrect) {
+      case 1:
+	puts("No. Please try again.");
+	break;
+      case 2:
+	puts("Wrong. Try once more");
+	break;	
+      case 3:
+	puts("Don't give up!");
+	break;	
+      case 4:
+	puts("No. Keep trying.");
+	break;	
+      }
+      scanf("%d", &guess);
+    }
+      correct = 1 + rand() % 4;
+
+      switch (correct) {
+      case 1:
+	puts("Very good!");
+	break;	
+      case 2:
+	puts("Excellent!");
+	break;	
+      case 3:
+	puts("Nice work!");
+	break;	
+      case 4:
+	puts("Keep up the good work!");
+	break;	
+      }
+
+    puts("Would you like to play again? (type 1 to play, -1 to quit)");
+    scanf("%d", &guess);
+      return guess;
+  }
+  else {
+    return guess;
+  }
+}

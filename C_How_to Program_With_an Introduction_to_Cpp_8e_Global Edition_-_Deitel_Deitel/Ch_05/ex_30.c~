@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int toQualityPoints(float average);
+
+int main(void)
+{
+  float average;
+  int quality;
+
+  puts("Enter average grade:");
+  scanf("%ff, &average");
+  quality = toQualityPoints(average);
+  
+  printf("Quality of average %f is: %d\n", average, quality);
+}
+
+int to QualityPoints()
+{
+  if (average > 60) {
+    return 4;
+    
+    if (average > 70) {
+      return 3;
+      
+      if (average > 80) {
+	return 2;
+	
+	if (average > 90) {
+	  return 1;
+	}
+      }
+    }
+  }
+  else {
+    return 0;
+  }
+}

@@ -1,0 +1,53 @@
+1. a) functions
+   b) call
+   c) local
+   d) return
+   e) void
+   f) scope
+   g) return, return expression, do nothing
+   h) function prototype
+   i) rand()
+   j) srand(
+   k) storage duration, scope, linkage,     X
+      auto, static, extern, register
+   l) local                                 X auto
+   m) global                                
+   n) static
+   o) register, extern, static, global      X
+      file, function, block, function prototype
+   p) recursive
+   q) base
+
+2. a) block
+   b) block
+   c) file
+   d) file
+   e) file
+   f) function prototype
+
+3. See ex_3.c
+
+4. a) double hypotenuse(double side1, double side2)
+   b) int smallest(intx, int y, int z)
+   c) void instructions(void)
+   d) float inToFloat(int number)
+
+5. a) double hypotenuse(double side1, double side2);
+   b) int smallest(intx, int y, int z);
+   c) void instructions(void);
+   d) float inToFloat(int number);
+
+6. static float lastVal;
+
+7. a) problem: function h is defined inside function g
+      solution: define the function h outside function g, and make a call to h
+      within g
+   b) problem: does not return a value
+      solution: add keyword 'return' before 'int result = x + y;'
+   c) problem: semi-colon after the function header
+      solution: remove the semi-colon
+   d) problem: function does not return a value if the if statement is false
+      solution: add keyword 'return' before n + sum(n - 1);
+   e) problem: function is declared void, but includes a return statement
+               which returns an integer
+      solution: remove statement beginning with 'return'

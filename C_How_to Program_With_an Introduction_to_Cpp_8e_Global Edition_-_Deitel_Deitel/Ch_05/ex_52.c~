@@ -1,0 +1,101 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int askQuestion(int total);
+
+int main(void)
+{
+  int correct;
+  int tally = 1;
+  int wrong = 0;
+  float percentCorrect;
+
+  while (tally < 10) {
+    wrong += askQuestion(tally);
+    printf("Tally: %d\n", tally);
+    if (wrong != 0) {
+      tally = wrong;
+    }
+    else {
+      tally++;
+    }
+  }
+
+  correct = tally - wrong;
+  percentCorrect = (float) correct / tally;
+
+  printf("Correct: %d\n", correct);
+  printf("Tally: %d\n", tally);
+  printf("Percent correct: %.2f\n", percentCorrect);
+  
+  if (percentCorrect >= .75) {
+    puts("Congratulations! You are ready to go to the next level.");
+  }
+  else {
+    puts("Please ask your teacher for extra help.");
+  }
+}
+
+int askQuestion(int total)
+{
+  int answer, guess, number1, number2;
+  int correct = 0, incorrect = 0;
+  
+  srand(time(NULL));
+
+  number1 = 1 + rand() % 9;
+  number2 = 1 + rand() % 9;
+
+  puts("Multiplication Practice Quiz\n");
+  
+  printf("How much is %d times %d?\n", number1, number2);
+  scanf("%d", &guess);
+  
+  answer = number1 * number2;
+
+  while (guess != answer && total <= 10) {
+    incorrect = 1 + rand() % 4;
+    printf("Total = %d\n", total);
+    switch (incorrect) {
+    case 1:
+      puts("No. Please try again.");
+      break;
+    case 2:
+      puts("Wrong. Try once more");
+      break;	
+    case 3:
+      puts("Don't give up!");
+      break;	
+    case 4:
+      puts("No. Keep trying.");
+      break;	
+    }
+    scanf("%d", &guess);
+    total++;;
+  }
+  
+  if (incorrect == 0) {
+    printf("Correct total = %d\n", total);
+    correct = 1 + rand() % 4;
+
+    switch (correct) {
+    case 1:
+      puts("Very good!");
+      break;	
+    case 2:
+      puts("Excellent!");
+      break;	
+    case 3:
+      puts("Nice work!");
+      break;	
+    case 4:
+      puts("Keep up the good work!");
+      break;	
+    }
+    return 0;
+  }
+  else {
+    return total;
+  }
+}

@@ -1,0 +1,146 @@
+8. See ex_8.c
+
+9. See ex_9.c
+
+10. See ex_10.c
+
+11. See ex_11.c
+
+12. a) If an argument is passed by value, a copy of the original argument is
+       made and passed to the function, and in doing so the original value
+       is not changed. Passing an argument by refernce means the called
+       function can change the orignal value
+    b) The rand function generates pseudo random values, the size of which
+       depends upon the system on which the program is being run (often in
+       the order of 32000). The values generated will be the same every time
+       the function is called.
+    c) To randomise a program, use the srand() function. This 'seeds' the
+       rand() function and produces difference random values each time the
+       function is called, if a different seed value is given each time. For
+       'real' randomisation, passing the argument time(NULL) to the srand()
+       function will seed rand with a number which changes each time the
+       function is called (the number is determined by reading the computer's
+       clock)
+    d) A recursive function solves a problem by breaking it up into a 'base'
+       case, and a simpler version of the original problem, which is then
+       solved in a similar way until the base case is arrived at for every
+       recursive call. The base case is the simplest version of the problem,
+       that the function knows how to solve without needing to call itself
+       again.
+
+13. a) n = 1 + rand() % 6;
+    b) n = 100 + rand() % 1000;
+    c) n = rand() % 19;
+    d) n = 1000 + rand() % 2222;
+    e) n = rand() % 1 - 1;
+    f) n = rand() % 11 - 3;
+
+14. a) n = (1 + rand() % 10) * 3;
+    b) n = (1 + rand() % 9) * 2 + 1;
+    c) n = (1 + rand() % 7) * 5 - 2;
+
+15. double hypotenuse(double side1, double side2)
+    See ex_15.c
+
+16. See ex_16.c
+
+17. See ex_17.c
+
+18. See ex_18.c
+
+19. See ex_19.c
+
+20. See ex_20.c
+
+21. Shapes - square, diamond, triangle, parallelogram
+    See ex_21.c
+
+22. See ex_22.c
+
+23. See ex_23.c
+
+24. See ex_24.c
+
+25. See ex_25.c
+
+26. See ex_26.c
+
+27. See ex_27.c
+
+28. See ex_28.c
+
+29. See ex_29.c
+
+30. See ex_30.c
+
+31. See ex_31.c
+
+32. See ex_32.c
+
+33. If the middle value in a set is picked as the first value to begin a
+    search, then one can next consider the set to be the half in which the
+    number lies (ie. if the number is greater than the middle value, the
+    new set to be searched will be the set greater than the middle value).
+    If this process is repeated, treating every new half-set as the new data
+    set, then because half of the values are eliminated each time, it will
+    take 2^n search iterations to find the number, where n is such that 2^n
+    is the next highest power of two after the largest number in the original
+    data set. So with the set of 1000, because the next highest power of two
+    is 1024, or 2^10, it will take no more than 10 iterations to find the
+    number, if the above algorithm is followed.
+    See ex_33.c
+
+34. See ex_34.c
+
+35. See ex_35.c
+
+36. See ex_36.c
+
+37. See ex_37.c
+
+38. See ex_38.c
+
+39. See ex_39.c
+
+40. See ex_40.c
+
+41. See ex_41.c
+
+42. See ex_42.c
+
+43. See ex_43.c
+
+44. See ex_44.c
+
+45. See ex_45.c
+
+46. a) The function has a declared return type double, but the parameter type
+       is float. Correct the problem by declaring the parameter as type double
+       XXX DECLARATION HAS TYPE DOUBLE BUT DEFINITION HAS NO TYPE.
+       CORRECT BY ADDING APPROPRIATE DECLARATION TYPE.
+
+    b) srand() is used to randomise the function rand() by seeding rand with
+       a randomly generated number, not to provide random numbers itself.
+       Fix by setting
+       srand();
+       int randomNumber = rand();
+    c) When x is assigned the value y, the fractional part of y is lost, as
+       y is implicitly converted to type int by the assignment. Casting x as
+       type double in the printf() statement will indeed return an answer
+       of type double, but it will not be the same as y, due to the type
+       conversion mentioned above.
+    d) The parameter double has been declared both in the function header
+       and also in the body of the function. It is not allowable to
+       re-declare a variable in this way, so to fix the error, remove the
+       declaration before 'number' in the function body.
+    e) If n is not equal to zero, then the recursive call within the function
+       body will never reach the base case. If n is greater than zero,
+       n + sum(n) will always increase and never approach 0. Similarly, if
+       n is less than zero, n + sum(n) will always decrease and also never
+       approach zero. Change the body of the else {} statement to
+       return n + sum(n - 1);
+       and the recursive calls will eventually converge to 0.
+
+47. See ex_47.c
+
+48. 

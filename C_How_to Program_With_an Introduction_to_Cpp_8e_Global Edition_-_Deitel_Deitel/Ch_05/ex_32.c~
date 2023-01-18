@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  srand(time(NULL));
+
+  int guess, number;
+
+  number = 1 + rand() % 1000;
+  
+  puts("I have a number between 1 and 1000.");
+  puts("Can you guess my number");
+  puts("Please type in your first guess.");
+  scanf("%d", &guess);
+
+  while ( guess != 0 || guess != y || guess != n) {
+    if (guess < number) {
+      puts("Too low. Try again.");
+    }
+    else if (guess > number) {
+      puts("Too high. Try again.");
+    }
+    else {
+      puts("Excellent! You guessed the number!");
+      puts("Would you like to play again? (y or n)")
+    }
+  }
+}

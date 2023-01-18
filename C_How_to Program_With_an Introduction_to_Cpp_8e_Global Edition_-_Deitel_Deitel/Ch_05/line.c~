@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <math.h>
+
+int main(void)
+{
+  int x;
+  int radius = 1;
+  int line[4] = 0;
+
+  xNeg = -sqrt(radius);
+  xPos = sqrt(radius)
+  
+  for (int i = 0; i <= radius; i++) {
+
+    if ((i <= (x + radius) < (i + 1)) || (i <= (x + radius) < (i + 1))) {
+	line[i] = 1;
+    }
+      else {
+	line[i] = 0;
+  }
+    int counter = 0;
+    
+    for (int i = 0; i <= radius; i++) {
+      printf("%d ", line[i]);
+      counter++;
+
+      if (counter % 5 = 0) {
+	puts("");
+      }
+    }
+}

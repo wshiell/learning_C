@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int gcd(int x, int y);
+
+int main(void)
+{
+  int x, y;
+
+  puts("Enter two integers:");
+  scanf("%d%d", &x, &y);
+
+  gCD = gcd(x, y);
+  
+  printf("The greatest common divisor of %d and %d is: %d\n", x, y, gCD);
+}
+
+int gcd(int x, int y)
+{
+  if (y = o) {
+    return x;
+  }
+  else {
+    return gcd(y, x % y);
+  }
+}

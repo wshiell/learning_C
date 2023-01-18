@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <math.h>
+
+int main(void)
+{
+/*   printf("sqrt(a))",  ); */
+/*   printf("cbrt(a))", ); */
+/*   printf("exp(a))", ); */
+/*   printf("log(a))", ); */
+/*   printf("log10(a))", ); */
+/*   printf("fabs(a))", ); */
+/*   printf("ceil(a))", ); */
+/*   printf("floor(a))", ); */
+/*   printf("pow(a, b))", ); */
+/*   printf("fmod(a, b ))", ); */
+/*   printf("sin(a))", ); */
+/*   printf("cos(a))", ); */
+/*   printf("tan(a))", ); */
+/* } */
+
+/* { */
+  int a, b;
+  
+  puts("Enter two integers:");
+  scanf("%d", &number);
+
+  puts("Enter lines to display:");
+  scanf("%d", limit);
+
+  printf("%10s%10s%10s%10s", "Number" "sqrt(a)", "cbrt(a)", "exp(a)");
+
+  for (int count = 1; count <= limit; count++) {
+    printf("%10f%10f%10f%10f", number, sqrt(a), cbrt(a), exp(a));
+  }
+}

@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+void isPerfect(int number);
+
+int main(void)
+{
+  int number;
+
+  printf("%s\t%s\n", "Perfect Number", "Factors");
+  
+  for (int count = 1; count <= 1000; count++) {
+    isPerfect(number);      
+  }
+}
+
+void isPerfect(int number)
+{
+  int divisor, perfect = 0;
+
+  for (int count = 1; count <= number / 2; count++) {
+
+    if (number % divisor == 0) {
+     perfect += divisor;
+    }
+  }
+  if (number = perfect - number) {
+    printf("%d\n", number);
+  }
+}
