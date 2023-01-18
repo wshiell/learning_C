@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main(void)
+{
+  int a = 12345;
+  float b = 1.2345;
+  
+  printf("\n%10d\n%10f\n", a, b);
+  printf("\n%8d\n%8f\n", a, b);
+  printf("\n%6d\n%6f\n", a, b);
+  printf("\n%4d\n%4f\n", a, b);
+  printf("\n%2d\n%2f\n", a, b);  
+}
+d 

@@ -1,0 +1,52 @@
+4. a) print("%-15.8u", 40000);
+   b) scanf("%x", &hex);
+   c) printf("%+d\n", 200);, printf("%d\n", 200);
+   d) printf("%#x\n", 100);
+   e) scanf("%[^p]", a);
+   f) printf("%09.3f\n", 1.234);
+   g) scanf("%d%*c%d%*c%d\n", &hour, &minute, &second);
+   h) scanf(s, characters);
+   i) scanf("%d:%d:%d\n", &hour, &minute, &second);
+
+5. a) 10000
+   b) The statement uses the c conversion specifier rather than s, so it prints nothing
+      The statment should replace c with s to function properly
+   c) 1024.988
+   d) 021
+      0x11
+      1.008837e+03
+   e)  1000000
+      +1000000
+   f)   4.45+E02
+   g)   4.5+E02
+   h) The statement prints incorrectly, because instead of using a floating point conversion
+      specifier, it uses the d conversion specifier, indicating that it expects an integer
+
+6. a) Second argument uses apostrophes instead of quotation marks. Correct by replacing
+      the apostrophes with quotation marks
+   b) The statement is suppose to print the string literal "Hello", but uses the c
+      conversion specifier instead of the correct s conversion specifier, and also
+      encloses the second argument in apostrophes rather than quotation marks.
+      Replace c with s, and replace the apostrophes with quotation marks.
+   c) The statment uses the conversion specifier c instead of s. Replace c with s.
+   d) The inner quotation marks in the format control string aren't prefixed by escape
+      characters (\). Add escape characters before each inner quotation mark.
+   e) The statement uses the s conversion specifier when printing the third character
+      in the array 'day'. Replace s with the correct conversion specifier c.
+   f) The puts() function accepts string literals, but its argument is enclosed with
+      apostrophes rather than quotation marks. Replace the apostrophes with quotation marks.
+   g) The first argument in the scanf() function is missing quotation marks. Insert
+      them.
+   h) The statment uses the conversion specifiers s in it's format control string. It should
+      use c instead. Replace both instances of s with c.
+   i) scanf() requires the use of the address operator for anything other than pointers
+      (or strings and arrays, which are pointers anyway). Because the second argument of
+      scanf() is referencing a single element of the character array 's', it should use the
+      address operator to assign the value of the input to s[7]
+
+7. See ex_7.c
+
+8. See ex_8.c
+   When the values are printed in fields which
+
+9. 

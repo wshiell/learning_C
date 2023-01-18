@@ -1,0 +1,10 @@
+#include <stdio.h>
+
+int main(void)
+{
+  int a;
+  
+  printf("\n%s\n\n%s", "Enter an integer:", "> ");
+  scanf("%e", &a);
+  printf("%s%e\n", "The value of the integer is: ", a);
+}

@@ -1,0 +1,46 @@
+1. a) streams
+   b) standard input
+   c) standard output, standard error
+   d) printf()
+   e) flags, field width, precision, conversion specifier XX AND LITERAL CHARACTER
+   f) i, d
+   g) u, o, x
+   h) h, l
+   i) e/E
+   j) L
+   k) 6
+   l) s, c
+   m) null / terminating
+   n) asterisk (*)
+   o) -
+   p) +
+   q) scanf()
+   r) scan set
+   s) i
+   t) lf AND le AND lE AND lg AND lG
+   u) assignment supression character
+   v) integer XX FIELD WIDTH
+
+2. a) statment using the s conversion specifier which expects a string - change to a c
+   b) There is an extra percent sign agter the floatint point number - remove it
+   c) The c conversion specifier expects a character argument - use the s conversion
+      specifier instead, and prefix it with a 1 to isolate the first character in the
+      argument
+   d) The literal character " will not be printed unless preceeded with a backslash -
+      add a backslash before the second and third quotation marsk
+   e) The format control string is missing quotation marks, add one at the beginning and end
+   f) The second argument, which accepts a character literal, uses quotation marks - 
+      replace them with apostrophes
+   g) The second argument, which accepts a string literal, uses apostrophes - replace them
+      with quotation marks
+
+3. a) printf("%10d", 1234");
+   b) printf("%+.3e", , 123.456789);
+   c) scanf("%lf", &number);
+   d) printf("%o", 100); XX NEED A HASH FLAG PRECEDING THE o CONVERSION SPECIFIER
+   e) scanf("%s", string);
+   f) scanf("%[^0123456789]c", n); XX SHOULD BE "%[0123456789]"
+   g) printf("%*.*f", x, y, 87.4573);
+   h) scanf("%f%", percent);
+   i) printf("%+20.3llf", 3.333333); XX WRONG. SHOULD BE L NOT ll
+   

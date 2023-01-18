@@ -1,0 +1,21 @@
+4. a) print("%-15.8u", 40000);
+   b) scanf("%x", &hex);
+   c) printf("%+d\n", 200);, printf("%d\n", 200);
+   d) printf("%#x\n", 100);
+   e) scanf("%[^p]", a);
+   f) printf("%09.3f\n", 1.234);
+   g) scanf("%d%*c%d%*c%d\n", &hour, &minute, &second);
+   h) scanf(s, characters);
+   i) scanf("%d:%d:%d\n", &hour, &minute, &second);
+
+5. a) 10000
+   b) The statement uses the c conversion specifier rather than s, so it prints nothing
+      The statment should replace c with s to function properly
+   c) 1024.988
+   d) 021
+      0x11
+      1.008837e+03
+   e)  1000000
+      +1000000
+   f)   4.45+E02
+   g)   4.5+E02

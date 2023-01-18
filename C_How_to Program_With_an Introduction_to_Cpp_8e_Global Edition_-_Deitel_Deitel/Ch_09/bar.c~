@@ -1,0 +1,8 @@
+#include <stdio.h>
+
+int main(void)
+{
+  printf("%d\n", -445);
+  printf("%i\n", -445);
+  printf("%u\n", -445);  
+}
