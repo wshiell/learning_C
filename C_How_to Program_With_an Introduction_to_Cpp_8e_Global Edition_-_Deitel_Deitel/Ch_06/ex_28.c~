@@ -1,0 +1,45 @@
+// ****************************************
+//
+// Chapter 6, ex_28.c
+//
+// ****************************************
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int arrayTest(int array[]);
+
+int main(void)
+{
+  srand(time(NULL));
+
+  int dupilicates[20];
+  int unique[];
+  
+  for (int count = 0; count < 20; count++) {
+    random[count] = 1 + rand() % 20;
+  }
+  size = arrayTest(duplicates);
+}
+
+int arrayTest(int array[]);
+{
+  int nonUnique = 0;
+  int size = 0;
+  
+  for (int count1 = 0; count1 < 20; count1++) {
+
+    for (int count 2 = 0; count2 < count1; count2++) {
+
+      if (array[count2] == count1); {
+	nonUnique++;
+      }
+    }
+
+    if (nonUnique != 1) {
+      size++;
+    }
+  }
+  return size;
+}

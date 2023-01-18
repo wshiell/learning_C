@@ -1,0 +1,37 @@
+// ****************************************
+//
+// Chapter 6, ex_30.c
+//
+// ****************************************
+
+#include <stdio.h>
+
+#define SIZE 100
+
+void initialiseArray(int array[]);
+
+int main(void) {
+
+  int eratosthenes[SIZE];
+
+  initialiseArray(eratosthenes);
+
+  for (int index1 = 1; index1 < SIZE; index1++) {
+
+    for (int index2 = index1 + 1; index2 < SIZE; index2++) {
+
+      if (index2 % index1 == 0) {
+	eratosthenes[count2] = 0;
+      }
+    }
+  }
+}
+
+void initialiseArray(int array[])
+{
+
+  for (int count = 0; count < SIZE; count++) {
+
+    array[count] = 1;
+  }
+}

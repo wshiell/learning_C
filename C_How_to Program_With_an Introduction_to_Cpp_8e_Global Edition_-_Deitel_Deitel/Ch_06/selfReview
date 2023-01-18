@@ -1,0 +1,46 @@
+1. a) arrays
+   b) index
+   c) constantX SYMBOLIC CONSTANT
+   d) populating X SORTING
+   e) searching
+   f) two-dimensional
+
+2. a) false. Each array can only store data of a single type
+   b) false. Array indices can only be of integral type
+   c) false. The remaining elements are initialised to zero
+   d) true
+   e) false. Arrays are passed by reference, but array elements are passed
+      by value
+
+3. a) #define SIZE 10
+   b) double array[SIZE] = {0};
+   c) array[4];
+   d) array[9] = 1.667;
+   e) array[7] = 3.333;
+   f) printf("%.2f %.2f", array[6], array[9]);
+   g) for (x = 0; x < SIZE; x++) {
+        printf("%d ", array[x]);
+      See ex_3g.c
+
+4. a) int table[SIZE][SIZE];
+   b) Array has nine elements
+      printf("%d ", array[i]);
+   c) for (int x = 0; x < SIZE; x++) {
+        for (int y = 0; y < SIZE; y++) {
+          table[x][y] = x + y;
+	}
+      }
+   d) int table[SIZE][SIZE] = { { 1, 8 }, { 2, 4, 6 }, { 5 } };
+      see ex_4d.c
+
+5. a) the inclusion of the semi-colon is a syntax error. Remove it:
+      #define SIZE 100
+   b) SIZE should be defined as a global variable:
+      #define SIZE 10
+   c) the array only has ten elements, but the for loop tries to initialise 11
+      change the condition in the loop to i < 10;
+   d) the inclusion of a semi-colon in the header is a syntax error, remoev it
+      #include <stdio.h>
+   e) the statement a[1, 1] = 5; should be a[1][1] = 5;
+   f) using an assignment operator in the #define preprocessor directive
+      remove the operator

@@ -1,0 +1,153 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define GAMES 1
+
+enum Status {CONTINUE, WON, LOST};
+
+int rollDice(void);
+
+int craps(void);
+
+int main(void)
+{
+  srand(time(NULL));
+  
+  int result[20] = {0};
+  int numberOfRolls;
+
+  for (int count = 0; count < GAMES; count++) {
+    numberOfRolls = craps();
+
+    switch (numberOfRolls) {
+    case 1:
+      result[count]++;
+      break;
+    case 2:
+      result[count]++;
+      break;
+    case 3:
+      result[count]++;
+      break;
+    case 4:
+      result[count]++;
+      break;
+    case 5:
+      result[count]++;
+      break;
+    case 6:
+      result[count]++;
+      break;
+    case 7:
+      result[count]++;
+      break;
+    case 8:
+      result[count]++;
+      break;
+    case 9:
+      result[count]++;
+      break;
+    case 10:
+      result[count]++;
+      break;
+    case 11:
+      result[count]++;
+      break;
+    case 12:
+      result[count]++;
+      break;
+    case 13:
+      result[count]++;
+      break;
+    case 14:
+      result[count]++;
+      break;
+    case 15:
+      result[count]++;
+      break;
+    case 16:
+      result[count]++;
+      break;
+    case 17:
+      result[count]++;
+      break;
+    case 18:
+      result[count]++;
+      break;
+    case 19:
+      result[count]++;
+      break;
+    case 20:
+      result[count]++;
+      break;
+    default:
+      result[count]++;
+      break;
+    }
+
+    printf("Number of Rolls: %d\n", numberOfRolls);
+  }
+
+  for (int count = 0; count < 20; count++) {
+    printf("%-25s%d%s\t%5d\n", "Games won on roll number",  count + 1, ": ", result[count]);
+  }
+
+  printf("Games won after roll 20: %d\n", result[20]);
+  puts("");
+}
+
+int craps(void)
+{
+  int myPoint;
+  int rolls = 0;
+  
+  enum Status gameStatus;
+  int sum = rollDice();
+  rolls++;
+  puts("Yo");
+  
+  switch(sum) {
+
+  case 7:
+  case 11:
+    gameStatus = WON;
+    break;
+
+  case 2:
+  case 3:
+  case 12:
+    gameStatus = LOST;
+    break;
+
+  default:
+    gameStatus = CONTINUE;
+    myPoint = sum;
+    break;
+  }
+
+  while (CONTINUE == gameStatus) {
+    sum = rollDice();
+    rolls++;
+  puts("Yo");    
+    
+    if (sum == myPoint) {
+      gameStatus = WON;
+
+    }
+    else {
+      if (7 == sum) {
+	gameStatus = LOST;
+	return rolls;
+      }
+    }
+  }
+}
+
+int rollDice(void)
+{
+  int die1 = 1 + (rand() % 6);
+  int die2 = 1 + (rand() % 6);
+
+  return die1 + die2;
+} 

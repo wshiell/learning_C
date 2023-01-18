@@ -1,0 +1,71 @@
+#include <stdio.h>
+
+int main(void)
+{
+  // Define arrays
+
+  int count;
+  int day = 0;
+  int salesperson;
+  int productNumber;
+  
+  int sales1[4] = {0};
+  int sales2[4] = {0};
+  int sales3[4] = {0};
+  int sales4[4] = {0};
+  int totalSales[4][3] = {0};
+
+  //Indicate day
+
+  while (day <= 30) {
+
+    puts("Day #%d\n", day);
+
+    // Enter salesperson number
+
+    puts("Enter salesperson # (-1 to quit):");
+    scanf("%d", &salesperson);
+  
+    while (salesperson != -1) {
+
+      // Enter product number
+    
+      puts("Enter product #: (-1 to quit):");
+      scanf("%d", &productNumber);
+
+      // Enter sales for product
+
+      count = 0;
+    
+      if (productNumber != -1 && count != 5) {
+    
+	puts("Enter sales for product:");
+	scanf("%d", &totalSales);
+    
+	while (productNumber != -1) {
+
+	  switch (salesperson) {
+
+	  case '1':
+	    sales1[productNumber - 1] += totalSales;
+	    break;
+
+	  case '2':
+	    sales2[productNumber - 1] += totalSales;
+	    break;
+
+	  case '3':
+	    sales3[productNumber - 1] += totalSales;
+	    break;
+
+	  case '4':
+	    sales4[productNumber - 1] += totalSales;
+	    break;
+	  }
+	}
+	count++;
+      }
+    }
+    day++;
+  }
+}

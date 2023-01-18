@@ -1,0 +1,43 @@
+// ****************************************
+//
+// Chapter 6, ex_35.c
+//
+// ****************************************
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define 10
+
+void recursiveMinimum(int array[]);
+
+int main(void)
+{
+
+  srand(time(NULL));
+  
+  int array[SIZE];
+
+  for (int count = 0; count < SIZE; count++) {
+    array[count] = rand() % 20;
+  }
+  
+  recursiveMinimum(array);
+}
+
+void recursiveMinimum(int array[], int SIZE)
+{
+  int min = 0;
+
+  if (SIZE == 0) {
+    printf("Minimum value: %d\n", min);
+  }
+  else {
+
+    if (array[SIZE] < min) {
+      min = array(SIZE);
+    }
+    recursiveMinimum(array, SIZE - 1);
+  }
+}

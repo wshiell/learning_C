@@ -1,0 +1,240 @@
+6. a) static
+   b) contiguous, type
+   c) zeroth, a[0]
+   d) name, position
+   e) reference
+   f) bounds checking
+   g) assignment
+   h) null, \0
+   i) 5, 7, 35
+   j) a[1][2]
+
+7. a) false. The remaining elements in the array will be initialised to zero
+   b) true
+   c) true
+   d) false. The size of the array will be the same as the number of entries
+      in the initializer list
+   e) true
+   f) false. Individual array elements are passed by value. Arrays are passed
+      by reference
+
+8. a) printf("%df, n[3] * 3");
+   b) for (int i = 0; i < 10; i++) {
+        total += i;
+      }
+   c) for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+	  m[i][j] = 3;
+        }
+      }
+   d) for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 5; j++) {
+	  int largest = 0;
+	  int smallest = 0;
+
+          if (sales[i][j] > largest) {
+	    largest = sales[i][j];
+          }
+	  if (sales[i][j] < smallest) {
+	    smallest = sales[i][j];
+          }
+        }
+      }
+   e) for (int i = 99; i < 200; i++) {
+        array200[i][j] = array[i - 99][j - 99] ;
+      }
+   f) for (int i = 0; i < 100; i++) {
+        sum[i] = d1[i] + d2[i];
+	difference[i] = d2[i] d1[i];
+      }
+
+9. a) int grades[4][19];
+   b) The array has five rows
+   c) The array has 20 rows
+   d) The array has 100 elements
+   e) grades[0][0], grades[1][0], grades[2][0], grades[3][0], grades[4][0]
+   f) grades[2][1]
+   g) grades[0][1] = 100;
+   h) for (int i = 0; i < 5; i++) {
+
+        for (int j = 0; j < 20; j++) {
+          printf("Enter value of element grades[%d][%d]:\n", i, j);
+          scanf("%d", &value);
+	  grades[i][j] = value;
+	}
+      }
+   i) for (int i = 0; i < 5; i++) {
+
+        for (int j = 0; j < 20; j++) {
+       	  grades[i][j] = 0;
+        }
+      }
+   j) int i = 0;
+
+      for (int j = 0; j < 20; j++) {
+        grades[i][j] = mathGrades[i];
+      }  
+   k) int i = 0;
+
+      for (int j = 0; j < 20; j++) {
+
+        largest = 0;
+        smallest = 0;
+
+        if (grades[i][j] > largest) {
+	  largest = grades[i][j];
+        }
+
+        if (grades[i][j] < smallest) {
+	  smallest = grades [i][j];
+        }
+      }
+      
+    l) for (int i = 0; i < 5; i++) {
+         int j = 1;
+         printf("grades[%d][%d] = %d", i, j, grades[i][j]);
+       }
+    m) int i = 0;
+       int total = 0;
+
+       for (int j = 0; j < 20; j++) {
+         total += grades[i][j];
+       }
+
+       float average = (float) total / 20;
+    n) printf("%s", "    ");
+
+       for (int j = 0; j < 20; j++) {
+         printf("%4d", j);
+       }
+
+       puts("\n");
+
+       for (int i = 0; i < 5; i++) {
+         printf("[%d] ", i);
+	 
+         for (int j = 0; j < 20; j++) {
+           printf("%4d", grades[i][j]);
+         }
+	 puts("");
+       }
+
+10. See ex_10.c
+
+11. See ex_11.c
+
+12. a) See ex_12a.c
+    b) See ex_12b.c
+    c) See ex_12c.c
+    d) See ex_12d.c
+
+13. a) missing address operator
+    b) array is not initialised, so junk values will be printed
+    c) semi colons incorrectly used as seperators, indefinite number of elements defined
+       (comma operator used incorrectly)
+    d) ?
+
+14. See ex_14.c
+
+15. See ex_15.c
+
+16. sales[0][0], sales[0][1], sales[0][2], sales[0][3], sales[0][4],
+    sales[1][0], sales[1][1], sales[1][2], sales[1][3], sales[1][4],
+    sales[2][0], sales[2][1], sales[2][2], sales[2][3], sales[2][4]
+
+17. The program calls a function which multiplies all of the elements of the array
+    which is passed to it together, then returns the result of the multiplication
+    and prints it.
+
+18. The program prints "Answer is: " followed by every element of the array multiplied
+    by five
+    The function functionName uses recursive calls to single out each element of the
+    array and then prints it after multiplying it by five.
+
+19. See ex_19.c
+
+20. a) See ex_20a.c
+    b) See ex_20b.c
+    c) See ex_20c.c
+       By 'fairest', it means that craps has odds of winning close to 50%. If one plays
+       long enough, one will still lose money, but the amount of money that one loses
+       will be less than if one plays other games with worse odds.
+    d) See ex_20d.c
+    e) If you play n games where n increases to a large number, you are ultimately
+       going to lose more than you wager, as the chances of winning tend towards
+       just under 50%
+
+21. See ex_21.c
+
+22. See ex_22.c
+
+23. See ex_23.c
+
+24. a) Written on paper
+    b) See ex_24b.c
+    c) See ex_24c.c
+    d) See ex_24d.c
+
+25. a) - c) See ex_24 (solution is part of the solutions of the previous problems)
+    d) The brute force version was a much simpler program, because it was a subset
+       of the heuristic approach, thus was more detailed by default. Because of the
+       more complex nature of the heuristic version, the algorithm was considerably
+       harder to develop, and importantly, it was difficult to write clean code
+       (ie. it was difficult to break the code up into functions, as it was
+       constantly changing). A cleaner and more systematic approach should be used
+       in future.
+       Because the heuristic version allowed solutions to the tour to be found far
+       more simply, it required significantly less computer power (the brute force
+       approach required an exponentially increasing number of attempts to
+       complete a tour, and so the computing power increased accordingly).
+       It does not seem to be the case that the heuristic approach guarantees a full
+       tour, though it does make completing one far more likely than using the brute
+       force method.
+       Brute force problem solving is a simpler approach, so can be implemented far
+       more easily. Using a heuristic may be difficult, as it is necessary to
+       create the heuristic in the first place, which may not be trivial. However,
+       using the brute force approach is far more resource intensive, so depending
+       on the nature of the problem being solved, it may be more appropriate to
+       spend more time developing a heuristic to solve the problem, as this may
+       actually save effort in the long run, when considering all aspects of the
+       problem being solved, and what is necessary to solve it.
+
+26. See ex_26.c
+    Because the queens can be said to 'eliminate' the squares which they are attacking,
+    it makes sense to use this idea to limit the squares to which additional queens can
+    move. As a result, incorporating elimination into a heuristic works intuitively.
+
+27. a) See ex_27a.c
+    b) See ex_27b.c
+    c) If you want to get a solution with a low number of attempts, the exhaustive
+       solution is not appropriate. The least number of attempts is fixed, and will
+       not change due to the way in which the solutions are determined
+    d) The random brute force method, on many occasions, requires a larger number of
+       attempts to yield a solution, but it is also possible to find a solution after
+       only a very small number of attempts. Consequently, the random brute force
+       solution may be appropriate if you want to try and obtain a low number of
+       attempts to solve the puzzle. The exhaustive brute force method on the other
+       hand, with its fixed number of solutions, will yield a constant value for the
+       processing power required to solve the puzzle. This may be more appropriate if
+       knowing ahead of time how much processor power is needed is desired.
+
+28. See ex_28.c
+
+29. See ex_29.c
+
+30. a) See ex_30.c
+    b) See ex_30.c
+
+31. See ex_31.c
+
+32. See ex_32.c
+
+33. See ex_33.c
+
+34. Problem already solved previously (see ex_26.c)
+
+35. See ex_35.c
+
+36. See ex_36.c
+
+37. See ex_37.c

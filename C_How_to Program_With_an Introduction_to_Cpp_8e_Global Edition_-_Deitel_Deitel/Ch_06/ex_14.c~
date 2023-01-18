@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#define SIZE 10
+#define MAX 5
+
+int main(void)
+{
+  int a[SIZE];
+  int b[SIZE];
+  int match = 0;
+
+  srand(time(NULL));
+
+  for (int counter = 0; counter < SIZE; counter++) {
+    a[counter] = rand() % MAX;
+    b[counter] = rand() % MAX;
+  }
+
+  for (int count1 = 0; count1 < SIZE; count1++) {
+
+    for (int count2 = count1; count2 < SIZE; count2++) {
+
+      if (a[count] == b[count]) {
+	match++;
+      }
+    }
+  }
+
+  int common[match] = {0};
+  int index = 0;
+  
+  for (int count1 = 0; count1 < SIZE; count1++) {
+
+    for (int count2 = count1; count2 < SIZE; count2++) {
+
+      if (a[count2] == b[count2]) {
+	common[index] = a[count2];
+	index++;
+      }
+    }
+  }
+  for (int count = 0; count < SIZE; count++) {
+    printf("Array a: %d", a[count]);
+  }
+
+  for (int count = 0; count < SIZE; count++) {
+    printf("Array b: %d", b[count]);
+  }
+
+  for (int count = 0; count < match; count++) {
+    printf("Common elements of a and b: %d", common[count]);
+  }
+}

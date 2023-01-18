@@ -1,0 +1,28 @@
+// ****************************************
+//
+// Chapter 6, ex_35.c
+//
+// ****************************************
+
+#include <stdio.h>
+
+#define SIZE 10
+
+void printArray(const int array[], size_t arraySize);
+
+int main(void)
+{
+  int array[] = {0};
+  printArray(array, SIZE);
+  puts("");
+}
+
+void printArray(const int array[], size_t arraySize)
+{
+  if (arraySize != 0) {
+    printf("%3d", array[arraySIZE]);
+  }
+  else {
+    printArray(array, arraySize - 1);
+  }
+}

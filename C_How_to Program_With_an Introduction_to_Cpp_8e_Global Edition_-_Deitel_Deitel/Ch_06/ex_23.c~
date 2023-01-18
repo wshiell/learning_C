@@ -1,0 +1,216 @@
+#include <stdio.h>
+
+#define GRID 50
+#define LIMIT 20
+
+enum pen {UP, DOWN};
+
+void turtle(const int instructions[], int count);
+int turnLeft(void);
+int turnRight(void);
+int move(int floor[][GRID], int position[], int direction, int distance, int orientation,
+	 int penStatus);
+void printArray(const int floor[][GRID]);
+	       
+int main(void)
+{
+  // Declare and initialise array 'instructions'
+
+  int instructions[LIMIT] = {0};
+
+  // Declare variables
+
+  int command;
+  int count = 0;
+
+  // Display initial user prompts
+  
+  puts("Enter instructions for the TURTLE (-1 to quit):");
+  printf("(Note: number of commands must be less than %d)\n", LIMIT);
+  printf("Command #%d:\n", count + 1);
+  scanf("%d", &command);
+
+  // Input command values
+  
+  while (command != -1) {
+    instructions[count] = command;
+    count++;
+
+    puts("Enter next command:");
+    printf("Command #%d:", count);    
+    scanf("%d", &command);
+  }
+
+  // Print array 'instructions'
+
+  /* puts("\nArray 'instructions':\n"); */
+  
+  /* for (int counter = 0; counter < LIMIT; counter++) { */
+  /*   printf("%d ", instructions[counter]); */
+  /* } */
+
+  // Copy commands to new array 'temp'
+
+  int temp[count];
+
+  for (int counter = 0; counter < count; counter++) {
+    temp[counter] = 0;
+  }
+
+  for (int counter = 0; counter < count; counter++) {
+    temp[counter] = instructions[counter];
+  }
+
+  // Change size of array 'instructions' to match array 'temp', and copy values
+  
+  instructions[count];
+
+  for (int counter = 0; counter < count; counter++) {
+    instructions[counter] = temp[counter];
+  }
+
+  // Call function 'turtle'
+  
+  turtle(instructions, count);
+}
+
+void turtle(const int instructions[], int count)
+{
+  // Delcare variable 'direction'
+
+  int direction = 0;
+  
+  // Declare variable 'orientation'
+
+  int orientation = 0;  
+
+  // Declare variable 'distance'
+
+  int distance;
+  
+  // Declare and initialise variable of type 'pen'
+  
+  enum pen penStatus;
+
+  penStatus = UP;
+
+  // Declare and initialise array 'position'
+  
+  int position[1] = {0};
+
+  // Declare and initialise array 'floor'
+
+  int floor [GRID][GRID] = {0};
+
+  // Loop through each command in array 'instructions'
+  
+  for (int counter = 0; counter < count; counter++) {
+
+    switch (instructions[counter]) {
+      
+    case '1':
+      penStatus = UP;
+      break;
+    case '2':
+      penStatus = DOWN;
+      break;
+    case '3':
+      direction = turnLeft();
+      break;
+    case '4':
+      direction = turnRight();
+      break;
+    case '5':
+      counter++;
+      distance = instructions[counter];
+      orientation = move(floor, position, direction, distance, orientation, penStatus);
+      break;
+    case '6':
+      printArray(floor);
+      break;
+    case '7':
+      break;
+    }
+  }
+
+  // Print array 'instructions'
+  
+  /* puts("\nArray 'instructions'\n"); */
+
+  /* for (int counter = 0; counter < count; counter++) { */
+  /*   printf("%d ", instructions[counter]); */
+  /* } */
+}
+
+// Turn the turtle left
+
+int turnLeft(void)
+{
+  int direction = -1;
+  return direction;
+}
+
+// Turn the turtle right
+
+int turnRight(void)
+{
+  int direction = 1;
+  return direction;  
+}  
+
+// Move the turtle's position
+
+int move(int floor[][GRID], int position[], int direction, int distance, int orientation,
+	 int penStatus)
+{
+  // Declare variables for turtle's x and y positions
+
+  int position_X = position[0];
+  int position_Y = position[1];
+
+  orientation += direction;
+
+  // Change value of array 'floor' according to pen orientation and distance moved
+  
+  for (int count = 0; count < distance; count++) {
+
+    switch (orientation) {
+
+    case '0':
+      position_Y += count;
+      break;
+    case '1':
+      position_X += count;
+      break;
+    case '2':
+      position_Y -= count;
+      break;
+    case '3':
+      position_X -= count;
+      break;
+    }
+    
+    if (penStatus == UP) {
+      continue;
+    }
+    else {
+      floor[position_X][position_Y] = 1;
+    }
+  }
+
+  return orientation;
+}
+
+// Print array 'floor'
+
+void printArray(const int floor[][GRID])
+{
+ 
+  for (int row = 0; row < GRID; row++) {
+
+    for (int column = 0; column < GRID; column++) {
+      printf("%d ", floor[row][column]);
+    }
+    puts("");
+  }
+}

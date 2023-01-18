@@ -1,0 +1,31 @@
+// ****************************************
+//
+// Chapter 6, ex_35.c
+//
+// ****************************************
+
+#include <stdio.h>
+
+void stringReverse(char string[], int total);
+
+int main(void)
+{
+  char string[];
+  int total = 0;
+
+  puts("Enter string:");
+  scanf("%s", string);
+
+  stringReverse(string,total);
+}
+
+void stringReverse(char string[])
+{
+  if (string[total] == '\0') {
+    ;
+  }
+  else {
+    printf("%c", string[]);
+    stringReverse(string, total + 1);
+  }
+}

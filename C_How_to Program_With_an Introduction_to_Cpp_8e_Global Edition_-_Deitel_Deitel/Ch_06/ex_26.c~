@@ -1,0 +1,334 @@
+// ****************************************
+//
+// Chapter 6, ex_26
+//
+// ****************************************
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
+
+// Function to create an heuristic array
+
+void heuristic(int board[][8]);
+
+// Function to determine the minimum value in the heuristic array before adding a queen
+
+int determineMin(int board[][8], int min);
+
+// Function which adds a queen to the board
+
+void addQueen(int board[][8], int Q[][2], int min, int count);
+
+// Function which prints the board
+
+void printBoard(int board[][8], int Q[][2]);
+
+// Functions to control text colour
+
+void red(void); // Red
+void blue(void); // Blue
+void green(void); // Green
+void beige(void); // Beige
+void white(void); //White
+void reset(void); // Resets colour to default
+
+// Begin function 'main'
+
+int main(void)
+{
+  green();
+  printf("\n%28s\n", "**Eight Queens Puzzler**"); // Title display for program
+  reset();
+  
+  srand(time(NULL)); // Seed function 'rand()'
+
+  int attempts = 0; // Number of attempts made to acheive a successful solution
+
+  // Until a successful solution is achieved, call the function 'addQueen' repeatedly,
+  // incrementing the variable 'attempts' each time
+  
+  while (attempts != -1) {
+    attempts++; // Increment 'attempts'
+
+    int fail = 0;
+    int min = 64; // Initialise minimum elimination value on empty board to 64
+    int board[8][8] = {0}; // Declare and initialise array 'board' to zero
+    int Q[8][2] = {-1}; // Declare & initialise to -1 array 'queen' to hold Qs position
+
+    heuristic(board); // Call function 'heuristic'
+  
+    for (int count = 0; count < 8; count++) {
+
+      addQueen(board, Q, min, count); // Attempt to add queen # count to the board
+      board[Q[count][0]][Q[count][1]] = 29; // Set value of position on 'board' to 29
+
+      // Go through the list of previous queen positions. If the last position a queen
+      // was placed is in the list, set variable 'fail' equal to one, which will cause
+      // the function 'addQueen' to be called again
+      
+      for (int counter = 0; counter < count; counter++) {
+
+	// Compare the last position to every previous position
+	
+	if (Q[counter][0] == Q[count][0] && Q[counter][1] == Q[count][1] &&
+	    count != 0){
+	  fail = 1;
+	}
+	else {
+	  ; // If the position is new, continue without incrementing 'fail'
+	}
+      }
+
+      // If the most recent queen was moved to a unique position, and the most recent
+      // queen was also the eighth queen, set 'attempts' equal to -1, which will cause the
+      // program to fall out of the while loop and terminate
+      
+      if (fail == 0 && count == 7) {
+
+	attempts = -1; // Set attempts equal to -1
+	printBoard(board, Q); // Print board	  
+      }      
+
+      // If the most recent queen was moved to a unique position and the most recen queen
+      // was *not* the eighth queen, continue with the next iteration of the while loop
+      
+      if (fail == 0) {
+      }
+      else {
+	break;
+      }
+    }
+  }
+} // End function 'main'
+
+// Begin function 'heuristic'
+
+void heuristic(int board[][8])
+{
+  int eliminated = 0; // Set number of squares eliminated to zero
+  int C[2] = {0}; // Declare an array to track position of each square in sequence
+
+  for (int count = 0; count < 64; count++) {
+
+    C[0] = count % 8; // Row position being tested
+
+    if (count % 8 == 0 && count != 0) {
+      C[1]++; // Column position being tested
+    }
+    
+    for (int row = 0; row < 8; row++) {
+
+      for (int column = 0; column < 8; column++) {
+
+	// If the square being considered is attacked by a queen placed on the board,
+	// increase the elimination number of the square
+	
+	if (row == C[0] || column == C[1]
+	    || (fabs(row - C[0]) == fabs(column - C[1]))) {
+	  eliminated++; // Increment variable 'eliminated'
+	}
+      }
+    }
+    board[C[0]][C[1]] = eliminated; // Set elimination value for the square considerd
+    eliminated = 0; // Reset the elimination value
+  }
+} // End function 'heuristic'
+
+// Begin function 'determineMin'
+
+int determineMin(int board[][8], int min) {
+
+  min = 64; // Reset value 'min' to 64 (empty board)
+
+  // Determine the minimum elimination value of the board
+  
+  for (int row = 0; row < 8; row++) {
+
+    for (int column = 0; column < 8; column++) {
+
+      if (board[row][column] < min && board[row][column] != 0) {
+	min = board[row][column]; 
+      }
+    }
+  }
+  return min; // Return the minimum elimination value
+} // End function 'determineMin'
+
+// Begin function 'addQueen'
+
+void addQueen(int board[][8], int Q[][2], int min, int count)
+{
+  int Q0, Q1; // Declare variables to track the queens position
+  
+  min = determineMin(board, min); // Call function to determine min elimination value
+
+  // Set trial position of queen # count
+  
+  Q0 = rand() % 8;
+  Q1 = rand() % 8;
+  
+  // If the trial position corresponds to a minimum value on the board, place the queen
+  // at this position. If not, recursively call the function until a minimum value is
+  // located
+
+  if (board[Q0][Q1] == min) {
+
+    for (int row = 0; row < 8; row++) {
+
+      for (int column = 0; column < 8; column++) {
+
+	if (row == Q0 || column == Q1 || (fabs(row - Q0) == fabs(column - Q1))) {
+	  board[row][column] = 0; // Set board position to 0 if attacked by queen
+	  Q[count][0] = Q0; // Set row position to indicate presence of queen
+	  Q[count][1] = Q1; // Set column position to indicate presence of queen
+	}
+      }
+    }
+  }
+  else {
+    addQueen(board, Q, min, count); // Call function again if the position is not a minimum
+  }
+} // End function 'addQueen'
+
+// Begin function 'printBoard'
+
+void printBoard(int board[][8], int Q[][2])
+{
+  puts("");
+
+  // Print top number row
+  
+  for (int count = 0; count < 10; count++) {
+
+    if (count != 0 && count != 9) {
+      beige();
+      printf("%3d", count);
+      reset();
+    }
+    else {
+      printf("%3s", " ");
+    }
+  }
+  white();
+  printf("\t\tPosition #");
+  reset();
+  puts("\n");
+
+  // Print body of the board
+  
+  for (int row = 0; row < 16; row++) {
+
+    if (row % 2 == 0) {
+    beige();
+    printf("%3d", (row / 2) + 1); // Print left number column
+    reset();
+    }
+    else {
+      printf("%3s", " ");
+    }
+    
+    for (int column = 0; column < 8; column++) {
+
+      if (row % 2 == 0) {
+      
+	if (board[row / 2][column] != 29) {
+	  blue();
+	  printf("%3s", "."); // If square is empty, print '.'
+	  reset();
+	}
+	else {
+	  red();
+	  int temp;
+
+	  for (int count = 0; count < 8; count++) {
+
+	    if (Q[count][0] == (float) row / 2) {
+	      temp = count;
+	    }
+	  }
+	  printf("%3d", temp + 1); // If square contains a queen, print queen number
+	  reset();
+	}
+      }
+      else {
+	printf("%3s", " ");
+      }
+    }
+    if (row % 2 == 0) {
+      beige();
+      printf("%3d", (row / 2) + 1); // Print right number column
+      reset();
+    }
+    else {
+      printf("%3s", " ");
+    }
+
+    if (row < 8) {
+      white();
+      printf("\t\tQueen #%d: (%d, %d)",
+	     row + 1, Q[row][0] + 1, Q[row][1] + 1); // Print Q's position
+      reset();
+    }
+    puts("");
+  }
+
+  // Print bottom number row
+  
+  for (int count = 0; count < 10; count++) {
+
+    if (count != 0 && count != 9) {
+      beige();
+      printf("%3d", count);
+      reset();
+      
+    }
+    else {
+      printf("%3s", " ");
+    }
+  }
+  puts("\n");
+} // End function 'printBoard'
+
+// Begin function 'red'
+
+void red(void)
+{ 
+  printf("\033[0;31m"); 
+} // End funtion 'red'
+
+// Begin function 'blue'
+
+void blue(void)
+{
+  printf("\033[0;34m"); 
+} // End function 'blue'
+
+// Begin function 'green'
+
+void green(void)
+{
+  printf("\033[0;32m");
+} // End function 'green'
+
+// Begin function 'beige'
+
+void beige(void)
+{
+  printf("\033[0;36m");  
+} // End function 'beige'
+
+// Begin function 'white'
+
+void white(void)
+{
+  printf("\033[0;37m");
+} // End function 'white'
+
+// Begin function 'reset'
+
+void reset(void)
+{
+  printf("\033[0m");
+} // End function 'reset'
