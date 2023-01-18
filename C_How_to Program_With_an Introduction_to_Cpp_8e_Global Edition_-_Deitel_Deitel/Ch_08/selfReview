@@ -1,0 +1,49 @@
+1.  char c;
+    int x, y, z;
+    double d, e, f;
+    char *ptr;
+    char s1[100], s2[100];
+    
+    a) c = toupper('c');
+    b) isdigit('c') ? " is a " : " is not a ";
+    c) iscntrl('c') ? " is a " : " is not a ";
+    d) fgets(s1, n, stdin);
+    e) puts(s1);
+    f) ptr = strrchr(s1, 'c');
+    g) putchar('c');
+    h) isalpha('c') ? " is a " : " is not a ";
+    i) c = getchar();
+    j) ptr = strstr(s1, s2);
+    k) isprint('c') ? " is a " : " is not a ";
+    l) sscanf(s1, "%lf %lf %lf", &d, &e, &f);
+    m) strcpy(s2, s1);   XXX WRONG (strcpy(s1, s2);)
+    n) ptr = strpbrk(s1, s2);
+    o) printf("%d", strcmp(s1, s2));
+    p) ptr =  strchr(s1, 'c');
+    q) sprintf(s1, "%7d%7d%7d", x, y, z);
+    r) strncpy(s1, s2, 10); XXX WRONG (strncat(s1, s2, 10);)
+    s) printf("%d", strlen(s1));
+    t) ptr = strtoken(s2, ",");
+
+2. char *vowel = "AEIOU";
+   char *vowel = { 'A', 'E', 'I', 'O', 'U' , '\0' };
+   char vowel[] = "AEIOU";
+
+3. a) the second conversion specifier should be %c, as the third argument returns a char
+      XXX WRONG - Jack
+   b) jill
+   c) jack and jill
+   d) 8
+   e) 13
+
+4) a) The '\0' character needs to be added to s after "hello" is copied into it, otherwise
+      the printf() function will not execute.
+   b) The conversions specifier is of the wrong type - it should be %c
+   c) s is not large enough to copy "Welcome home" into it and also accomodate the
+      termination character. The size of s should be changed to 13.
+   d) The argument of the if function should only evaluate to 0 or non zero positive
+      (true or false). The strcmp() function allows the possibility of negative values,
+      which will cause an error if used as an argument in if()
+      XXX WRONG - the if() statement will execute if the argument is non zero,
+      but non zero values for strcmp indicate that the strings are not equal, which is
+      counter to the logic of the argument as presented

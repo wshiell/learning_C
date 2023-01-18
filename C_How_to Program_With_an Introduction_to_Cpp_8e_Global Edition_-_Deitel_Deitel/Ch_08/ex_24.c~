@@ -1,0 +1,25 @@
+#include <stdio.h>
+#define SIZE 100
+
+int main(void)
+{
+  int length;
+  char string[SIZE];
+  
+  printf("\n%s\n\n%s", "Enter a string (type 'q' to quit):", "> ");
+  fgets(string, SIZE, stdin);
+  length = strlen(string);
+
+  while (string[0] != 'q') {
+    
+    if (string[length - 1] == 'n' && string[length - 2] == 'o')
+      && string[length - 3] == 'i' && string[length - 4] = 'n') {
+      printf("\n%s%s", "String: ", string);
+    }
+    else {
+      printf("\n%s\n", "String does not end with 'tion'.");
+    }
+    printf("\n%s\n\n%s", "Enter a string (type 'q' to quit):", "> ");
+      fgets(string, SIZE, stdin);    
+  }
+}

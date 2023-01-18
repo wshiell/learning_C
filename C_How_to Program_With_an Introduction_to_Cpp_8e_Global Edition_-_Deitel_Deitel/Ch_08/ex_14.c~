@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string.h>
+#define SIZE 15
+
+int main(void)
+{
+  char phoneNumber[SIZE];
+  char *areaCode, *threeDigits, *fourDigits;
+  char *newNumber;
+  
+  puts("Input a telephone number in the form (555) 555-5555:");
+  puts("(555) - area code\n555-5555 - localphone number");
+  printf("%s", " > ");
+  fgets(phoneNumber, SIZE, stdin);
+
+  areaCode = strtok(&phoneNumber[1], ")");
+
+  while (phoneNumber != NULL) {
+    threeDigits = strtok(NULL, "-");
+  }
+  /* newNumber = strcat(areaCode, threeDigits); */
+  /* newNumber = strcat(newNumber, fourDigits); */
+  fourDigits = "";
+  
+  printf("A: %s\nT: %s\nF: %s\n", areaCode, &threeDigits[1], fourDigits);
+}

@@ -1,0 +1,9 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  double d, e, f;
+
+  sscanf("3.33 4.44 5.33", &d, &e, &f);
+}

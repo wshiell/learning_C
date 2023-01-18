@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <string.h>
+#define SIZE 100
+
+int main(void)
+{
+  int count = 0;
+  char sentence[SIZE];
+  char *sentencePtr;
+  
+  puts("Enter a sentence:");
+  fgets(sentence, SIZE, stdin);
+  
+  while (sentence[count] != '\n') {
+    count++;
+  }
+
+  sentence[count] = '\0';
+  
+  sentencePtr = strtok(sentence, " ");
+  
+  while (sentencePtr != NULL) {
+
+    printf("%s ", sentencePtr);
+    sentencePtr = strtok(NULL, " ");
+  }
+  puts("");
+}

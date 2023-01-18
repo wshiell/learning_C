@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <string.h>
+#define SIZE 100
+
+int main(void)
+{
+  char string[SIZE];
+  char *remove, *text = "line of text", *word = "word";
+
+  dataPrompt(text);
+  dataEntry(string);
+  dataEntry(word);
+  dataEntry(remove);  
+}
+
+void dataPrompt(char *prompt)
+{
+  printf("\n%s%s%s\n\n%s\n", "Enter a ", prompt, ":", "> ");
+}
+
+void dataEntry(char *data)
+{
+  fgets(string, SIZE, stdin);
+
+  int count = 0;
+  
+  while (string[count] != '\n') {
+    count++;
+  }
+
+  string[count] = '\0';
+}

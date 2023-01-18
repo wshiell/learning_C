@@ -1,0 +1,87 @@
+#include <stdio.h>
+#include <string.h>
+#define SIZE 100
+
+void testCharacters(char string[SIZE]);
+void tokeniseString(char *string);
+
+int main(void)
+{
+  int count = 0;
+  char string[SIZE];
+
+  printf("\n%s\n", "Enter a line of text:");
+  printf("\n%s", "> ");
+  fgets(string, SIZE, stdin);
+
+  while (string[count] != '\n') {
+    count++;
+  }
+
+  string[count] = '\0';
+  
+  testCharacters(string);
+}
+
+void testCharacters(char string[SIZE])
+{
+  int checkString(char *candidateString, char *testString);
+
+  int consonantCount = 0, digitCount = 0, spaceCount = 0, vowelCount = 0;
+  char *vowels = "AEIOUaeiou";
+  char *consonants = "BCDFGHJKLMNPQRTSVWXYZbcdfghjklmnpqrtsvwxyz";
+  char *digits = "0123456789";
+  char *spaces = " ";
+
+  consonantCount = checkString(string, consonants);
+  digitCount = checkString(string, digits);
+  spaceCount = checkString(string, spaces);
+  vowelCount = checkString(string, vowels);
+  tokeniseString(string);
+  
+  printf("\nConsonants: %d\n", consonantCount);
+  printf("Vowels: %d\n", vowelCount);
+  printf("Digits: %d\n", digitCount);
+  printf("Spaces: %d\n", spaceCount);
+
+  printf("\nRatio V:C = %.4lf\n", (float) vowelCount / consonantCount);
+}
+
+int checkString(char *candidateString, char *testString)
+{
+  int counter = 0;
+  
+  char *testPtr = strpbrk(candidateString, testString);
+
+  if (testPtr == NULL) {
+    return 0;
+  }
+  else {
+
+    while (testPtr != NULL) {
+      testPtr = strpbrk(testPtr + 1, testString);
+      counter++;
+    }
+  }
+  return counter;
+}
+
+void tokeniseString(char *string)
+{
+  int sum;
+  int count = 1;
+  double average = 0;
+  char *stringPtr;
+  
+  stringPtr = strtok(string, " ");
+  
+  while (stringPtr != NULL) {
+
+    sum += strlen(string);
+    printf("%s ", stringPtr);
+    stringPtr = strtok(NULL, " ");
+    count++;
+  }
+    average = (float) sum / count;
+    printf("Average word length: %.3lf\n", average);
+}

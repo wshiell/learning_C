@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main(void)
+{
+  int i = 0;
+  char s[100];
+  char line;
+
+  puts("Enter a line of text:");
+  scanf("%s", &line);
+
+  while (line[i] != '\0') {
+    s[i] = line[i];
+    i++;
+  }
+
+  printf("%s\n", "The line of text in alternating upper and lower case is:");
+  puts(s);
+}

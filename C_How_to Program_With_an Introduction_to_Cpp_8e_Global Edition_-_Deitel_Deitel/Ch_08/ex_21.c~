@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <string.h>
+#define SIZE 100
+
+int enterString(void);
+void dataEntry(char *data);
+
+int main(void)
+{
+  int quit, oldSum, quit = 0;
+
+  puts("List Alphabetising Program");
+  puts("(Type 'q' to quit)");
+
+  do {
+
+    printf("%s\n\n%s", "\nEnter a line of text:", "> ");
+    quit = enterString();
+
+  } while (quit != -1);
+
+  printf("\nTotal words entered: %d\n", sum);
+}
+
+int enterString(void)
+{
+  char string[SIZE];
+
+  dataEntry(string);
+
+  if (string[0] == 'q') {
+    return 0;
+  }
+  return 1;
+}
+
+void dataEntry(char *data)
+{
+
+  fgets(data, SIZE, stdin);
+
+  if (data[0] == 'q') {
+    return;
+  }
+  
+  int count = 0;
+
+  while (data[count] != '\n') {
+    count++;
+  }
+
+  data[count] = '\0';
+}

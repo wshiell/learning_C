@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <math.h>
+
+double strToD(char *string);
+int strToL(char *string);
+unsigned long strToUL(char *string);
+
+int main(void)
+{
+  char *string;
+  
+  puts("Enter a string containing an integer or a double:");
+  scanf("%s", &string);
+
+  printf("%s%s%s%lf\n", "The original string: ", string, "The numerical portion: " ,
+	 strToD(string));
+  /* printf("%s%s%s%d\n", "The original string: ", string, "The numerical portion: " , */
+  /* 	 strToL(string)); */
+  /* printf("%s%s%s%u\n", "The original string: ", string, "The numerical portion: " , */
+  /* 	 strToUL(string));   */
+}
+
+double strToD(char *string)
+{
+  int length = strlen(string);
+  double converted = 0, count = 0;
+
+  for (size_t i = 0; i < length; i++) {
+
+    if (string[i] >= 48 && string[i] <= 57) {
+      converted += pow(10, i - count) * string[i];
+    }
+    count++;
+  }
+  return converted;
+}
+
+int strToL(char *string)
+{
+  ;
+}
+
+unsigned long strToUL(char *string)
+{
+  ;
+}

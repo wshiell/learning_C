@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+
+#define SIZE 100
+
+void printLatinWord(char* token, int count);
+
+int main(void)
+{
+  int count = 0;
+  char originalPhrase[SIZE];
+  char *tokenPtr;
+
+  puts("Enter a sentence to be converted to pig latin:");
+  scanf("%s", originalPhrase);
+  
+  tokenPtr = strtoken(originalPhrase, " ");
+
+  printf("%s", "The phrase converted to pig latin is: ");
+  
+  printLatinWord(tokenPtr, count);
+  
+  while (tokenPtr != NULL) {
+    count++;
+    tokenPtr = strtok(NULL, " ");
+    printLatinWord(tokenPtr, count);
+  }
+}
+
+void printLatinWord(char* token, int count)
+{
+  char *string = "ay", c;
+
+  c = token[0];
+  token = &token[1];
+  token = strcat(token, "c");
+  token = strcat(token, string);
+  
+  if (count == 0) {
+    c = toupper('c');
+  }
+  else {
+    ;
+  }
+
+  printf("%s ", string);
+}

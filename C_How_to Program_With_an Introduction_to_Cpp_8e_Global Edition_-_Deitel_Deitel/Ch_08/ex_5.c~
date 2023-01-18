@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main(void)
+{
+  char c;
+  
+  puts("Enter a character:");
+  scanf("%c", &c);
+
+  printf("%s%s%s%s\n",
+	 c, isblank('c') ? " is a " : " is not a", "blank character\n");
+}

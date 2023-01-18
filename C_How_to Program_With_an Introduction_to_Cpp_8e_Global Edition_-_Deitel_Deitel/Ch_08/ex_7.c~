@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  int i = 0;
+  int s[6];
+  char *string[] = {"124", "-34", "25", "235", "-34656", "0" };
+  char *stringPtr;
+
+  while (i < 6) {
+
+    s[i] = strtod(string[i], &stringPtr);
+    i++;
+  }
+
+  i = 0;
+  
+  while (i < 6) {
+    printf("%d ", s[i]);
+    i++;
+  }
+  puts("");
+}

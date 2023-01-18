@@ -1,0 +1,168 @@
+#include <stdio.h>
+
+int isAlpha(char c);
+int isDigit(char c);
+/* int isAlnum(char c); */
+/* int isBlank(char c); */
+/* int isXdigit(char c); */
+/* int isUpper(char c); */
+/* int isLower(char c); */
+/* int toUpper(char c); */
+/* int toLower(char c); */
+/* int isCntrl(char c); */
+/* int isPunct(char c); */
+/* int isPrint(char c); */
+/* int isSpace(char c); */
+
+int main(void)
+{
+  int check;
+  char c;
+
+  printf("\n%s\n", "Enter a character:");
+  scanf("%c", &c);
+
+  printf("%c%s%s\n", c, isAlpha(c) ? " is a " : " is not a ", "letter.");
+  isDigit(c);
+  /* isAlnum(c); */
+  /* isBlank(c); */
+  /* isXdigit(c); */
+  /* isUpper(c); */
+  /* isLower(c); */
+  /* toUpper(c); */
+  /* toLower(c); */
+  /* isCntrl(c); */
+  /* isPunct(c); */
+  /* isPrint(c); */
+  /* isSpace(c); */
+}
+
+int isAlpha(char c)
+{
+  if ((c >= 56 && c <= 90)  ||  (c >= 97 && c <= 122)) {
+    return 1;    
+  }
+  else {
+    return 0;
+  }
+}
+
+int isDigit(char c)
+{
+  if (c >= 48 && c <= 57) {
+    return 1;    
+  }
+  else {
+    return 0;
+  }    
+}
+
+int isAlnum(char c)
+{
+  if (c >= 48 && c <= ) {
+    return 1;
+  }
+  else {
+    return 0;
+  }
+}
+
+int isBlank(char c)
+{
+  if () {
+    return 1;
+  }
+  else {
+    return 0;
+  }
+}
+
+int isXdigit(char c)
+{
+  if () {
+    return 1;
+  }
+  else {
+    return 0;
+  }
+}
+
+int isUpper(char c)
+{
+  if () {
+    return 1;
+  }
+  else {
+    return 0;
+  }
+}
+
+int isLower(char c)
+{
+  if () {
+    return 1;
+  }
+  else {
+    return 0;
+  }
+}
+
+int toUpper(char c)
+{
+  if () {
+    return 1;
+  }
+  else {
+    return 0;
+  }
+}
+
+int toLower(char c)
+{
+  if () {
+    return 1;
+  }
+  else {
+    return 0;
+  }
+}
+
+int isCntrl(char c)
+{
+  if () {
+    return 1;
+  }
+  else {
+    return 0;
+  }
+}
+
+int isPunct(char c)
+{
+  if () {
+    return 1;
+  }
+  else {
+    return 0;
+  }
+}
+
+int isPrint(char c)
+{
+  if () {
+    return 1;
+  }
+  else {
+    return 0;
+  }
+}
+
+int isSpace(char c)
+{
+  if () {
+    return 1;
+  }
+  else {
+    return 0;
+  }
+}
