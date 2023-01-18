@@ -1,0 +1,80 @@
+#include <stdio.h>
+
+int main ( void )
+{
+
+  int a, b, c;
+  int smallest_1, smallest_2, smallest_3;
+  int largest_1, largest_2, largest_3;
+
+  puts( "Enter three integers: " );
+  scanf( "%d%d%d", &a, &b, &c );
+
+  if ( a == b ) {
+    if ( b == c ) {
+      puts( "All numbers are the same size ( %d = %d = %d ).", a, b, c );
+    }
+  }
+  if ( a == b ) {
+    if ( c > b ) {
+      puts( "Smallest numbers are: %d, %d", a, b );
+      puts( "Largest numbers are: %d", c );
+    }
+    if ( c < b ) {
+      puts( "Smallest numbers are: %d, %d", c );
+      puts( "Largest numbers are: %d", a, b );
+    }
+  }
+  if ( a == c ) {
+    if ( b > c ) {
+      puts( "Smallest numbers are: %d, %d", a, c );
+      puts( "Largest numbers are: %d", b );
+    }
+    if ( b < c ) {
+      puts( "Smallest numbers are: %d, %d", b );
+      puts( "Largest numbers are: %d", a, c );
+    }
+  }
+    if ( b == c ) {
+      if ( a > c ) {
+	puts( "Smallest numbers are: %d, %d", b, c );
+	puts( "Largest numbers are: %d", a );
+      }
+      if ( a < c ) {
+        puts( "Smallest numbers are: %d, %d", a );
+        puts( "Largest numbers are: %d", b, c );
+      }
+    }
+  }
+  if ( a > b ) {
+    if ( a > c ) {
+      puts( "Greatest number is: %d", a );
+    }
+    if ( b < c ) {
+      puts( "Smallest number is: %d", b );
+    }
+    if ( b > c ) {
+      puts( "Smallest number is: %d", c );
+    }
+  if ( c > b ) {
+    if ( c > a ) {
+      puts( "Greatest number is: %d", c );
+    }
+    if ( b < a ) {
+      puts( "Smallest number is: %d", b );
+    }
+    if ( b > a ) {
+      puts( "Smallest number is: %d", a );
+    }
+  if ( b > a ) {
+    if ( b > c ) {
+      puts( "Greatest number is: %d", b );
+    }
+    if ( a < c ) {
+      puts( "Smallest number is: %d", a );
+    }
+    if ( a > c ) {
+      puts( "Smallest number is: %d", c );
+    }    
+  }
+}
