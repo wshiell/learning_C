@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+typedef struct {
+  char *firstName;
+} HealthProfile;
+
+HealthProfile * setData(char *first);
+  
+int main(void)
+{
+  char FirstName[10];
+  HealthProfile variable, *variablePtr;
+
+  printf("Enter first name", "> ");
+  scanf("%s", FirstName);
+  printf("(Main) Address: %p\n", variablePtr);
+  variablePtr = setData(FirstName);
+  printf("(Main) Address: %p\n", variablePtr);
+  printf("(Main) Member: %s\n", (*variablePtr).firstName);  
+}
+
+HealthProfile * setData(char *first)
+{
+  HealthProfile object, *objectPtr;
+
+  object.firstName = first;
+
+  objectPtr = &object;
+
+  printf("(Test) Address: %p\n", objectPtr);
+  printf("(Test) Member: %s\n", (*objectPtr).firstName);
+  return objectPtr;
+}

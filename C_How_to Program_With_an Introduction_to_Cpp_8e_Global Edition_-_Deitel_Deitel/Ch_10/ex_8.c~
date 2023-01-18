@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+union integer {
+  char c;
+  short s;
+  int i;
+  long b;
+};
+
+int main(void)
+{
+  union integer object
+
+  puts("Enter a char value:");
+  scanf("%c", &object.c);
+
+  puts("Enter a short value:");
+  scanf("%hd", &object.s);
+
+  puts("Enter a int value:");
+  scanf("%d", &object.d);
+
+  puts("Enter a long value:");
+  scanf("%ld", &object.b);
+
+  printf("\n%s%c%s%hd%s%d%s%ld\n", "object.c: ", object.c, "object.s: ", object.s,
+	 "object.i: ", object.i, "object.b: ", object.b);
+}

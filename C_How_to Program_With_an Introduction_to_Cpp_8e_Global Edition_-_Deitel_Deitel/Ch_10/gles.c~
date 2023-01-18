@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main(void)
+{
+  char *a;
+  int *b;
+  double *c;
+
+  printf("%s%d\n%s%d\n%s%d\n",
+	 "The size of a pointer of type char is:", sizeof(a)),
+         "The size of a pointer of type in is:", size(b),
+         "The size of a pointer of type double is:", sizeof(c));
+}

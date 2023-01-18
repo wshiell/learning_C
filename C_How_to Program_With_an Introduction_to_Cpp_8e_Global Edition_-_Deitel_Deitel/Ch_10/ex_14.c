@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+void reverseBits(unsigned int value);
+void displayBits(unsigned int value);
+
+int main(void)
+{
+  unsigned int a;
+  
+  printf("%s\n\n%s", "Enter an integer:", "> ");
+  scanf("%u", &a);
+
+  puts("Integer in bits before reversal:");
+  displayBits(a);
+
+  puts("Integer in bits after reversal:");
+  reverseBits(a);
+}
+
+void reverseBits(unsigned int value)
+{
+  unsigned int mask = 1;
+
+  for (unsigned int i = 1; i <= 32; ++i) {
+
+    putchar(value & mask ? '1' : '0');
+    value >>= 1;
+
+    if (i % 8 == 0) {
+      putchar(' ');
+    }
+  }
+  puts("");  
+}
+
+void displayBits(unsigned int value)
+{
+  unsigned int mask = 1 << 31;
+
+  for (unsigned int i = 1; i <= 32; ++i) {
+
+    putchar(value & mask ? '1' : '0');
+    value <<= 1;
+
+    if (i % 8 == 0) {
+      putchar(' ');
+    }    
+  }
+  puts("");
+}

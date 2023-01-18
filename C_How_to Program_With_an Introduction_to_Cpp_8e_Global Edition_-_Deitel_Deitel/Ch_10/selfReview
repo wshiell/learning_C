@@ -1,0 +1,51 @@
+1. a) structure
+   b) record XX WRONG - union
+   c) bitwise AND &
+   d) members
+   e) inclusive OR |
+   f) struct
+   g) typedef
+   h) exclusive XOR ^
+   i) mask
+   j) union
+   k) tag name
+   l) structure member, structure pointer
+   m) left shift, right shift
+   n) enumeration, enumerated type
+
+2. a) False. Structures may contain variables of any data type, including other structures
+   b) False. Two unions cannot be compared using the == operator because they may occupy
+      different  amounts of memory, even if they have the same members
+   c) True.
+   d) False. Only members of the same structure must have unique names
+   e) False. keyword typedef is used to define new type names, for existing types
+   f) False. Structures are passed to functions by value
+   g) True.
+
+3. a) struct part {
+        unsigned int partNumber;
+        char partName[25];
+      };
+   b) typedef struct part Part;
+   c) Part a;
+      Part b[10];
+      Part *ptr;
+   d) scanf("%d", &a.partNumber);
+      scanf("%s", a.partName);
+   e) b[3].partNumber = a.PartNumber;
+      b[3].partName = a.PartName;
+   f) ptr = b;
+   g) printf("%d\n%s\n", ptr.partNumber, ptr.partName[]); XX WRONG
+      should be - printf("%d\n%s\n", (ptr + 3).partNumber, (ptr + 3).partName[]);
+
+4. a) Because the structure pointer operator has higher precedence than the dereferencing
+      operator, the statement will access the face member of struct cPtr, then derefernce
+      the result. To execute the statement correctly, change to (*cPtr)->face, or
+      just use c.face
+   b) The element in the array has not been referenced. Change to hearts[10].face
+   c) The first value initialised when declaring a union object should be of the same type as
+      the first member of the union (in this case char). Either change the order of the member
+      so char w is last, or initialise char w first
+   d) There is no semi-colon after the last brace in the struct definition. Add it.
+   e) keyword struct is absent from the declaration of d. Change to struct person d;
+   f) It is not allowed to assign a struct object to a struct object of a different type.

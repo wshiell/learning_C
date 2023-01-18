@@ -1,0 +1,98 @@
+5. a) struct inventory {
+        char partName[30];
+	int partNumber;
+	float price;
+	int stock;
+	int reorder;
+      };
+   b) union data {
+        char c;
+	short s;
+	long b;
+	float f;
+	double d;
+      };
+   c) struct address {
+        char streetAddress[25];
+	char city[20];
+	char state[3];
+	char zipCode[6];
+      };
+   d) struct student {
+        char firstName[15];
+	char lastName[15];
+	struct address homeAddress;
+      };
+   e) struct test {
+        unsigned int a : 1;
+        unsigned int b : 1;
+        unsigned int c : 1;
+        unsigned int d : 1;
+        unsigned int e : 1;
+        unsigned int f : 1;
+        unsigned int g : 1;
+        unsigned int h : 1;
+        unsigned int i : 1;
+        unsigned int j : 1;
+        unsigned int k : 1;
+        unsigned int l : 1;
+        unsigned int m : 1;
+        unsigned int n : 1;
+        unsigned int o : 1;
+        unsigned int p : 1;
+      }
+
+6. a) customerRecord.lastName;
+   b) customerPtr->lastName;
+   c) customerRecord.firstName;
+   d) customerPtr->firstName;
+   e) customerRecord.customerNumber;
+   f) (*customerPtr)->customerNumber;
+   g) customerRecord.phoneNumber;
+   h) customerPtr->phoneNumber;
+   i) customerRecord.address;
+   j) customerPtr.address;
+   k) customerRecord.city;
+   l) customerPtr->city;
+   m) customerRecord.state;
+   n) customerPtr->state;
+   o) customerRecord.zipCode;
+   p) customerPtr->zipCode;
+
+7. See ex_7.c
+
+8. See ex_8.c
+   No, the values do not always print correctly
+
+9. See ex_9.c
+   No, the values do not always print correctly
+
+10. See ex_10.c
+    The system puts zeroes in the vacated bits
+
+11. See ex_11.c
+
+12. See ex_12.c
+
+13. See ex_13.c
+
+14. See ex_14.c
+
+15. See ex_15.c
+
+16. See ex_16.c
+    Every number between 1 and 32000 is not a multiple of X. Function multiple() tests every
+    integer to see if it contains a bit equal to one, and as all positive integers contain
+    such a bit, no positive integer can be a multiple of X.
+    Thus, x is a non-positive number, and as negative numbers cannot be multiplied by a
+    positive number and yield a positive number, X must be equal to zero.
+    
+17. See ex_17.c
+    The program counts how many 1-bits there are in the integers entered by the user,
+    and if the total number of 1-bits is divisible by two, returns zero.
+    The function mystery() counts how many multiples of each power of two are present and
+    stores that number in the variable total.
+
+18. See ex_18.c
+
+19. See ex_19.c

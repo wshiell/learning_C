@@ -1,0 +1,159 @@
+#include <stdio.h>
+
+typedef struct {
+  char *firstName;
+  char *lastName;
+  char *gender;
+  int birthDay, birthMonth, birthYear;
+  double height, weight;
+} HealthProfile;
+
+HealthProfile * setData(char first[20], char last[20], char sex[2],
+			int day, int month, int year, double heightValue,
+			double weightValue);
+int ageYears(HealthProfile * variablePtr);
+void heartRate(int *maxRate, int *targetRate, int age);
+double bodyMassIndex(HealthProfile * variablePtr);
+
+int main(void)
+{
+  char FirstName[20], LastName[20], Gender[2];
+  int age, BirthDay, BirthMonth, BirthYear, maxRate = 0, targetRate = 0;
+  double bmi, Height, Weight;
+  HealthProfile *variablePtr, variable;
+
+  puts("\n** Health Profile Creation Program **");
+
+  printf("\n%s\n\n%s", "Enter First Name", "> ");
+  scanf("%s", FirstName);
+
+  printf("\n%s\n\n%s", "Enter Last Name", "> ");
+  scanf("%s", LastName);
+
+  printf("\n%s\n\n%s", "Enter Gender", "> ");
+  scanf("%s", Gender);
+
+  printf("\n%s\n\n%s", "Enter date of birth (dd/mm/yyyy)", "> ");
+  scanf("%d/%d/%d", &BirthDay, &BirthMonth, &BirthYear);
+
+  printf("\n%s\n\n%s", "Enter height", "> ");
+  scanf("%lf", &Height);
+
+  printf("\n%s\n\n%s", "Enter weight", "> ");
+  scanf("%lf", &Weight);
+
+  variablePtr = setData(FirstName, LastName, Gender, BirthDay,
+			BirthMonth, BirthYear, Height, Weight);
+  age = ageYears(variablePtr);
+  heartRate(&maxRate, &targetRate, age);
+  bmi = bodyMassIndex(variablePtr);
+
+  printf("Address: %p\n", (*variablePtr).firstName);  
+
+  variable = *variablePtr;
+  
+  printf("\n%s%s\n%s%s\n%s%s\n%s%d\n%s%d\n%s%d\n%s%lf\n%s%lf\n",
+	 "First name: ", variable.firstName,
+	 "Last name: ", variable.lastName,
+	 "Gender: ", variable.gender,
+	 "Birth day: ", variable.birthDay,
+	 "Birth month: ", variable.birthMonth,
+	 "Birth year: ", variable.birthYear,
+	 "Height: ", variable.height,
+	 "Weight: ", variable.weight);
+}
+
+HealthProfile * setData(char first[20], char last[20], char sex[2],
+			int day, int month, int year, double heightValue,
+			double weightValue)
+{
+  HealthProfile profile, *ptrProfile;
+
+  profile.firstName = first;
+  profile.lastName = last;
+  profile.gender = sex;
+  profile.birthDay = day;
+  profile.birthMonth = month;
+  profile.birthYear = year;
+  profile.height = heightValue;
+  profile.weight = weightValue;
+  printf("%s%s\n", "Test: ", profile.firstName);
+  printf("%s%s\n", "Test: ", profile.lastName);
+  printf("%s%s\n", "Test: ", profile.gender);
+  printf("%s%d\n", "Test: ", profile.birthDay);
+  printf("%s%d\n", "Test: ", profile.birthMonth);
+  printf("%s%d\n", "Test: ", profile.birthYear);
+  printf("%s%lf\n", "Test: ", profile.height);
+  printf("%s%lf\n", "Test: ", profile.weight);
+
+  ptrProfile = &profile;
+  printf("Address: %p\n", profile.firstName);    
+  return ptrProfile;
+}
+
+int ageYears(HealthProfile * variablePtr)
+{
+  int currentDay = 9, currentMonth = 10, currentYear = 2018;
+  int totalDays, totalMonths, totalYears;
+  int birthDay = variablePtr->birthDay;
+  int birthMonth = variablePtr->birthMonth;
+  int birthYear = variablePtr->birthYear;
+  int day, month, year;
+  int ageDays, ageMonths, ageYears;
+  int days, daysMonth, daysYear;
+  float currentAge;
+
+  if (currentDay < birthDay ) {
+    month = currentMonth - 1;
+    day = birthDay - currentDay;
+  }
+  else {
+    totalDays = currentDay - birthDay;
+  }
+
+  if (currentMonth < birthMonth ) {
+    year = currentYear - 1;
+    month = birthMonth - currentMonth;
+  }
+  else{
+    totalMonths = currentMonth - birthMonth;
+  }
+
+  currentMonth = month;
+  currentYear = year;
+  totalYears = currentYear - birthYear;
+  totalMonths = month;
+  totalDays = day;
+
+  currentAge = ( float ) days / 365.24;
+
+  printf("\nAge in (days/months/years): %d/%d/%d/\n", totalDays, totalMonths,
+	 totalYears );
+
+  return ageYears;
+}
+
+void heartRate(int *maxRate, int *targetRate, int age)
+{
+  *maxRate = 220 - age;
+
+  printf( "Age (in years): %f", age);
+  printf( "Maximum heart rate: %d.\n", *maxRate);
+  printf( "Target rate range: %f to %f.\n", .5 * *maxRate, .85 * *maxRate);
+}
+
+double bodyMassIndex(HealthProfile * variablePtr)
+{
+  double BMI;
+  double heightValue = variablePtr->height;
+  double weightValue = variablePtr->weight;
+
+  BMI = weightValue / ( heightValue * heightValue );
+
+  printf( "Your BMI is: \n%lf\n", BMI );
+  printf("%s\n%s\n%s\n%s\n%s\n", "BMI VALUES", "Underweight:\tless than 18.5",
+	 "Normal:\t\tbetween 18.5 and 24.9", "Overweight:\tbetween 25 and 29.9",
+	 "Obese:\t\t30 or greater" );
+
+  return BMI;
+}
