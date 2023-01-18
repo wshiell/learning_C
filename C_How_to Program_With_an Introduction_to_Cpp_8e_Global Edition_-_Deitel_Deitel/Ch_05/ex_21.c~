@@ -1,0 +1,115 @@
+#include <stdio.h>
+
+void rectangle(int side1, int side2, char fillCharacter);
+void square(int side1, char fillCharacter);
+/* void diamond(int side1, int side2, char fillCharacter); */
+void parallelogram(int side1, int side2, char fillCharacter);
+void rightAngledTriangle(int side1, int side2, char fillCharacter);
+void isocelesTriangle(int side1, int side2, char fillCharacter);
+
+int main(void)
+{
+  int side1, side2;
+
+  puts("Enter two numbers:");
+  scanf("%d%d", &side1, &side2);
+
+  puts("Enter a character to fill the shape:");
+  int c;
+  scanf("%d", &c);
+  c = getchar();
+
+  rectangle(side1, side2, c);
+  square(side1, c);
+  /* diamond(side1, side2, c); */
+  parallelogram(side1, side2, c);
+  rightAngledTriangle(side1, side2, c);
+  isocelesTriangle(side1, side2, c);
+}
+
+void rectangle(int side1, int side2, char fillCharacter)
+{
+  for (int row = 1; row <= side1; row++) {
+    for (int column = 1; column <= side2; column++) {
+      printf("%c", fillCharacter);
+    }
+    puts("");
+  }
+  puts("");
+}
+
+void square(int side1, char fillCharacter)
+{
+  for (int row = 1; row <= side1; row++) {
+    for (int column = 1; column <= side1; column++) {
+      printf("%c", fillCharacter);
+    }
+    puts("");
+  }
+  puts("");
+}
+
+/* void diamond(int side1, int side2, char fillCharacter) */
+/* { */
+/*     for(int count1 = 1; count1 <= side1; count1++) { */
+
+/*       if (count1 <= side1 / 2 + 1) { */
+/* 	side1 = 2 * (count1 - 1) + 1; */
+/* 	side2 = -count1; */
+/*       } */
+/*       else { */
+/* 	side1 = 2 * (side2 - count1) + 1; */
+/* 	side2 = (count1 - (side1 + 1)); */
+/*       } */
+    
+/*       for (int count2 = 1; count2 < ((side1 + 4) / 2) + side2; count2++) { */
+/* 	printf( "%s", " "); */
+/*       } */
+    
+/*       for (int count2 = 1; count2 <= side1; count2++) { */
+/*         printf("%c", fillCharacter); */
+/*       } */
+/*       puts(""); */
+/*     } */
+
+/* } */
+
+void parallelogram(int side1, int side2, char fillCharacter)
+{
+  for (int row = 1; row <= side1; row++) {
+    for (int space = 1; space < row; space++) {
+      printf("%s", " ");
+    }
+    for (int symbol = 1; symbol <= side2; symbol++){
+      printf("%c", fillCharacter);
+    }
+
+    puts("");
+  }
+}
+
+void rightAngledTriangle(int side1, int side2, char fillCharacter)
+{
+  for (int row = 1; row <= side1; row++) {
+    for (int column = 1; column <= row; column++) {
+      printf("%c", fillCharacter);
+    }
+    puts("");
+  }
+  puts("");
+}
+
+void isocelesTriangle(int side1, int side2, char fillCharacter)
+{
+  for (int row = 1; row <= side1; row++) {
+    for (int column = row; column < row; column++) {
+      for (int space = 1; space <= side2; space++) {
+	printf("%c", fillCharacter);
+      }
+    }
+    puts("");
+  }
+  puts("");
+}
+
+

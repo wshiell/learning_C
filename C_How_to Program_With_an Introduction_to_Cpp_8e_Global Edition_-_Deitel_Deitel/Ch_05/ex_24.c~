@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+float toYen(int dollar);
+float toEuro(int dollar);
+
+int main(void)
+{
+  
+}
+
+float toYen(int dollar)
+{
+  
+}
+
+float toEuro(int dollar)
+{
+  
+}

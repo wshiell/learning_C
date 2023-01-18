@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <math.h>
+
+void printDigits(int integer1, int integer2);
+
+int main(void)
+{
+  int number;
+
+  puts("Enter a five digit integer between 0 and 32767:");
+  scanf("%d", &number1);
+
+  puts("Enter another five digit integer between 0 and 32767:");
+  scanf("%d", &number2);
+
+  printDigits(number1, number2);
+}
+
+void printDigits(int integer1, int integer2)
+{
+  int integerQuotient, integerRemainder;
+
+  integerQuotient = integer1 / integer2;
+  integerRemainder = integer1 % integer2;
+
+  integer1 = integerRemainder;
+  integer2 = ceil((float) (integer1 / integer2) - 5);
+
+  if (integer2 == 1)  {
+    printf( "%d \n", integerQuotient);
+  }
+  else {
+    printDigits(integer1, integer2);
+  }
+}

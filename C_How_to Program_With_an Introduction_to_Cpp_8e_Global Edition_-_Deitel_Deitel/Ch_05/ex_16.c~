@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <math.h>
+
+void validTriangle(double side1, double side2, double side3);
+/* double triangleArea(double side1, double side2, double side3); */
+
+int main(void)
+{
+  double side1, side2, side3;
+  
+  printf("Enter three numbers, representing the sides of a triangle:");
+  scanf("%f%f%f", &side1, &side2, &side3);
+
+  validTriangle(side1, side2, side3);
+  triangleArea(side1, side2, side3);
+}
+
+void validTriangle(double side1, double side2, double side3)
+{
+  
+  if (side1 >= side2 && side1 >= side3) {
+
+    if (side2 >= side1 && side2 >= side3) {
+
+      if (side3 >= side1 && side3 >= side2) {
+	puts("The numbers represent the sides of a valid triangle");
+	return;
+      }
+      else {
+        puts("The numbers do not represent the side of a valid triangle");
+      }
+    }
+    else {
+      puts("The numbers do not represent the side of a valid triangle");      
+    }
+  }
+  else {
+    puts("The numbers do not represent the side of a valid triangle");
+  }
+}
+
+/* double triangleArea(double side1, double side2, double side3) */
+/* { */
+  
+/* } */
+  

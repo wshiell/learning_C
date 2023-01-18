@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <math.h>
+
+int rounding(float number);
+
+int main(void)
+{
+  int number;
+
+  puts("Enter a decimal number (type -1 to quit):");
+  scanf("%f", &number);
+
+  printf("\n%s\t%s\n\n", "Number", "Rounded Number");
+  
+  while (number != -1) {
+    printf("%f\t%%d\n", number, rounded(number));
+  }
+  puts("");
+}
+
+int rounding(float number)
+{
+  return int roundedNumber = ceil(number + .5);
+}

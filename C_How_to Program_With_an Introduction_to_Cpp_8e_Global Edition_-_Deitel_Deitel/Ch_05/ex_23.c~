@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int time(int hours, int minutes, int seconds);
+
+int main(void)
+{
+  int timeDifference;
+  
+  puts("Enter number of hours, minutes and seconds for time 1:");
+  scanf("%d%d%d", &hours1, &minutes1, &seconds1);
+
+  puts("Enter number of hours, minutes and seconds for time 2:");
+  scanf("%d%d%d", &hours, &minutes, &seconds);
+  
+  timeDifference = timeSeconds(hours1, minutes1, seconds1) -
+    timeDifference(hours2, minutes2, seconds2);
+  
+  printf("\nTime between time 1 and time 2 (in seconds) is: %d\n", %d);
+  
+}
+
+int timeDifference(int hours, int minutes, int seconds)
+{
+  int totalTime;
+
+  totalTime = 3600 * hours + 60 * minutes * seconds;
+  return totalTime;
+}

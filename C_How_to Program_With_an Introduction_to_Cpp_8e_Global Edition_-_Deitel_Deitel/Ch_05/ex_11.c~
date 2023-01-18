@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <math.h>
+
+int roundToInteger(float number);
+float roundToTenths(float number);
+float roundToHundredths(float number);
+float roundToThousandths(float number);
+
+int main(void)
+{
+  
+}
+
+int roundToInteger(float number)
+{
+  return floor(number * 10 + .5) / 10;
+}
+
+float roundToTenths(float number)
+{
+  return floor(number * 100 + .5) / 100;
+}
+
+float roundToHundredths(float number)
+{
+  return floor(number * 10 + .5) / 10;  
+}
+
+float roundToThousandths(float number)
+{
+  return floor(number * 10 + .5) / 10;  
+}

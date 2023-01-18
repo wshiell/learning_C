@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+double calculateCharge(int hours);
+
+int main(void) {
+
+  float minimumFee = 25.00, hourlyFee = 5.00, dailyFee = 50.00, tax = .05;
+  float rentalCharge, totalCharge = 0;
+  int maxRentalTime = 72, hours, totalHours = 0, days;
+
+  for(int customer = 1; customer <= 3; customer++) {
+    puts("Enter number of hours car rented: ");
+    scanf("%d", &hours);
+
+    calculateCharge(hours);
+
+    printf("%s\t%s\t%s\n", "Car", "Hours", "Charge");
+    printf("%d\t%d\t%.2f\n", customer, hours, rentalCharge);
+    hours += hours;
+    totalCharge += rentalCharge;
+  }
+  printf("%s\t%d\t%f\n", "Total",);
+}
+
+double calcualteCharge(int hours)
+{
+    if (hours <= 8) {
+     return  rentalCharge = 25.00 + hours * tax;
+    }
+    else if (8 <= hours <= 24) {
+      return rentalCharge = 25.00 + hours * hourlyFee + hours * tax;
+    }
+    else {
+      days = ceil((float) hours / 24);
+      return rentalCharge = dailyFee + 24 * tax * days;
+    }
+}
