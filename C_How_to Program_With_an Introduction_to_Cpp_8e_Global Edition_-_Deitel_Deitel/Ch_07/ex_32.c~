@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+void displayResults(char *causes, int responses[][10]);
+
+int main(void)
+{
+  char *causes[5] = { War, Famine, Disease, Pestilence, Flood };
+  int responses[5][10] = {0};
+
+  puts("Social Consciousness Survey.\n");
+  puts("Indicate how important you perceive the following causes"
+       "\n(1 being unimportant, 10 being of absolute importance)");
+
+  for (size_t i = 0; i < 5; i++) {
+
+    int choice;
+    
+    printf("How important do you consider %c?\n", *causes[i]);
+    puts("1 - unimportant, 10 - of absolute importance");
+    scanf("%d", &choice);
+
+    responses[i][choice] = 1;
+  }
+
+  displayResults(causes, responses);
+}
+
+void displayResults(char *causes, int responses[][10])
+{
+  printf("%-12s", "Causes");
+}

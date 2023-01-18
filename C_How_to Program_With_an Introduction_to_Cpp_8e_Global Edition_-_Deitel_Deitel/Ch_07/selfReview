@@ -1,0 +1,53 @@
+1. a) address
+   b) 0, NULL, an address
+   c) 0
+
+2. a) False. Because a void pointer does not point to an object of a given type,
+      the compiler cannot determine how much memory to set aside for it, thus an error
+      will be issued if a void pointed is dereferenced
+   b) False. Pointers of different types cannot be assigned to one another, with the
+      exception of the void pointer (which can be assigned to a pointer of any type)
+      XXX ^ WRONG ^
+
+3. a) float numbers[SIZE] = { 0.0, 1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9};
+   b) float *nPtr;
+   c) for (size_t i = 0; i < SIZE; ++i) {
+        printf("%4.1f", array[i]); XX WRONG >> numbers[i] not array[i]
+      }
+   d) nPtr = &numbers; XX WRONG nPtr = numbers;
+      nPtr = numbers[0]; XX WRONG nPtr = &numbers[0];
+   e) for (int offset = 0; offset < SIZE; offset++) {
+        printf("%4.1f", *(nPtr + offset));
+      }
+   f) for (int offset = 0; offset < SIZE; offset++) {
+        printf("%4.1f", *(numbers + offset));
+      }
+   g) for (size_t i = 0; i < SIZE; i++) {
+        printf("%4.1f", nPtr[i]);
+      }
+   h) numbers[3], *(numbers + 3), nPtr[3], *(nPtr + 3);
+   i) 1002532, 8.8;
+   j) 1002504, 1.1;
+
+4. float number1 = 7.3, number2;
+
+   a) float *fPtr;
+   b) fPtr = &number1;
+   c) printf("%f", *fPtr);
+   d) number2 = *fPtr;
+   e) printf("%f", number2);
+   f) printf("%p", &number1);
+   g) printf("%p", fPtr); The value stored in fPtr is the same as the value stored in
+      number1
+
+5. a) void exchange(float *x, float *y)
+   b) void exchange(float *x, float *y);
+   c) int evaluate(int x, int *poly(int))XX WRONG int evaluate(int x, int (*poly)(int))
+   d) int evaluate(int x, int *poly(int)); XX WRONG int evaluate(int x, int (*poly)(int));
+
+6. a) variable name incorrect - should be zPtr XX WRONG
+   b) zPtr will assign the address of z[0] to number, not it's value
+   c) *zPtr[] refers to the value stored at the address, not the address - should be zPtr[2]
+   d) the for loop instructs the program to print a value beyond the array
+   e) You can't dereference a null pointer
+   f) You can't use pointer arithmetic with an array name

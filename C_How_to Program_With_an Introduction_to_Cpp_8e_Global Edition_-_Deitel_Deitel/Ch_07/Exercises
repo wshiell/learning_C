@@ -1,0 +1,116 @@
+7. a) void
+   b) constant
+   c) address, indirection/dereferencing
+
+8. a) False. Not all, but some arithmetic operations can be performed on pointers
+   b) True.
+
+9. a) int oddNum[SIZE] = { 1, 3, 5, 7, 9, 11, 13, 15, 17, 19};
+   b) int *iPtr;
+   c) for (size_t i = 0; i < SIZE; ++i) {
+        printf("Elements of array 'oddNumber': %3d\n", oddNumber[i]);
+      }
+   d) iPtr = &oddNumber[0];
+      iPtr = oddNumber;
+   e) for (int offset = 0; offset < SIZE; offset++) {
+        printf("Elements of array 'oddNumber': %3d\n", *(iPtr + offset));
+      }
+   f) for (int offset = 0; offset < SIZE; offset++) {
+        printf("Elements of array 'oddNumber': %3d\n", *(oddNumber + offset));
+      }
+   g) for (int size_t = 0; i < SIZE; i++) {
+        printf("Elements of array 'oddNumber': %3d\n", (*iPtr[i] + offset));
+      }
+   h) oddNumber[3], *(oddNumber + 3), iPtr[3], *(iPtr + 3);
+   i) 2003820, the value is 11
+   j) 2003828, the value is 13
+
+10. double value1 = 20.4568, value2
+
+  a) double *dPtr;
+  b) dPtr = &value1;
+  c) printf("%lf", *dPtr);
+  d) value2 = *dPtr;
+  e) printf("Value2 = %lf", value2);
+  f) printf("Address of value1 = %p", &value1);
+  g) printf("Address stored in dPtr = %p", dPtr); The value is the same.
+
+11. a) long int addNumbers(long int numList[SIZE], size_t size)
+    b) long int addNumbers(long int numList[SIZE], size_t size);
+    c) void sort(int n[SIZE], const int size, int (*f)(int a, int b))
+    d) void sort(int n[SIZE], const int size, int (*f)(int a, int b));
+
+12.
+
+13.
+
+14.
+
+15.
+
+16.
+
+17. See ex_17.c
+
+18.
+
+19. The program prints the first string, and adds to it the second string,
+    such that the new string is not longer than 80 characters, and there are no spaces
+    in either string
+
+20. The program takes a string as input and returns the number of characters that were input    by the user
+
+21. a) Pointer has not been associated with a variable.
+       Solution: either declare and initialise a variable 'number', or remove the
+       indirection operator from the printf statement.
+       Solution: declare and initialise variable 'number'
+    b) The two pointers are off different types, so assigning one to the other will not work
+       Solution: cast *realPtr as type int in order to assign it to *integerPtr
+    c) Assigning an object of type *int to an object of type int will produce an error
+       Solution: cast y as type *int (note: because int and *int are of different sizes,
+       it is necessary to first cast y to a type of the same size as *int, then cast it
+       to *int)
+    d) The increment operand is a constant pointer representing the first element of
+       the array and as such cannot be changed
+       Solution: change the char array to a pointer, so that it may be incremented
+       to loop through all the elements in the corresponding array
+    e) genericPtr is type void, so dereferncing it will lead to an error.
+       solution: to dereference genericPtr, cast it as a pointer of type short*. This will
+       still case an error, as *numPtr has not been pointed at anything, so it will also be
+       necessary to point *numPtr at a valid variable
+    f) xPtr has not been declared as a pointer, so when xPtr is assigned &x, an error
+       will occur.
+       xPtr contains the address of x, not the value of x. When xPtr is used as the
+       argument in the printf statement, it is not dereferenced.
+       Solution: dereference xPtr.
+    g) The program may be trying to print the address of the pointer *s, but
+       in the printf statement, the address of the pointer is not used as the argument.
+       Rather, the memory location to which the pointer is assigned is used, and as the
+       pointer has not been assigned a variable to point at, an error will occur.
+       Solution: if the address of the pointer is what is desired, change the conversion
+       specifier from %s to %p, and apply an address operator before the second
+       argument (s).
+22.
+
+23.
+
+24.
+
+25. See ex_25.c
+
+26. The program takes two strings, returns 1 if they are identical, and 0 if they are not
+    The program is a basic spell checker.
+
+27.
+
+28.
+
+29.
+
+30. See ex_30.c
+
+31. See ex_31.c
+
+32. See ex_32.c
+
+33. See ex_33.c

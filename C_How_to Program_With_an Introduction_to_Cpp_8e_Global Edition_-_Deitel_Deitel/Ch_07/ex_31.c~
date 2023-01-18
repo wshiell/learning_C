@@ -1,0 +1,64 @@
+#include <stdio.h>
+
+void add(void);
+void subtract(void);
+void multiply(void);
+void divide(void);
+double dataEntry(void);
+
+int main(void)
+{
+  void (*calculator[3])(void) = { add, subtract, multiply, divide };
+
+  puts("Basic Calculator Program.\n\n"
+       "Enter 0 to add\nEnter 1 to subtract\n"
+       "Enter 2 to multiply\nEnter 3 to divide\n"
+       "Enter 4 to quit\n\n");
+
+  int choice;
+  scanf("%d", &choice);
+
+  (*calculator[choice])();
+}
+
+void add(void)
+{
+  double *data;
+  
+  data = dataEntry();
+  printf("%.2lf + %.2lf = %.2lf\n", x, y, x + y);
+}
+
+void subtract(void)
+{
+  double *data;
+    
+  data = dataEntry();
+  printf("%.2lf - %.2lf = %.2lf\n", x, y, x - y);  
+}
+
+void multiply(void)
+{
+  double *data;
+    
+  data = dataEntry();
+  printf("%.2lf x %.2lf = %.2lf\n", x, y, x * y);  
+}
+
+void divide(void)
+{
+  double *data;
+    
+  data = dataEntry();
+  printf("%.2lf / %.2lf = %.2lf\n", x, y, x / y);  
+}
+
+double dataEntry(void)
+{
+  double *data[2];
+  
+  puts("Enter two numbers:");
+  scanf("%d", &data[0], &data[1]);
+  
+  return *data;
+}

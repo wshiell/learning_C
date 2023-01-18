@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+ 
+
+int main(void)
+{
+  srand(time(NULL));
+
+  int harePosition = 0, tortoisePosition = 0;
+  int hareMove, tortoiseMove;
+  int track[70] = {0};
+
+  puts("BANG !!!!\nAND THEY'RE OFF !!!!!");
+  
+  hareMove = 1 + rand() % 10;
+  tortoiseMove = 1 + rand() % 10;
+}

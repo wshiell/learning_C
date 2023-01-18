@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+void bar(const * int xPtr);
+  
+int main()
+{
+  int *myPtr;
+
+  bar(myPtr);
+}
+
+void bar(const * int xPtr)
+{
+  
+}

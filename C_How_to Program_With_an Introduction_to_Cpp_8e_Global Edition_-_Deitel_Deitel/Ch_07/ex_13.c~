@@ -1,0 +1,437 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define SUITS 4
+#define FACES 13
+#define CARDS 52
+
+void shuffle(unsigned int wDeck[][FACES]);
+void deal(unsigned int wDeck[][FACES], char *face[], char *suit[]);
+void displayHand(char *hand[][2]);
+int evaluate(char *hand[][2], char* face[], char *suit[], int sequence[], int order[]);
+int pair(char *hand [][2]);
+int highCard(int sequence[], int order[], char *face[], char *suit[]);
+int twoPair(char *hand[][2]);
+int trips(char *hand[][2]);
+int quads(char *hand[][2]);
+int flush(char *hand[][2]);
+int straight(int sequence[], int order[], char *suit[], char *face[]);
+int fullHouse(char *hand[][2]);
+int straightFlush(char *hand[][2]);
+int royalFlush(char *hand[][2]);
+
+int main(void)
+{
+  unsigned int deck[SUITS][FACES] = {0};
+
+  srand(time(NULL));
+  shuffle(deck);
+
+  char *suit[SUITS] =
+    {"Hearts", "Diamonds", "Clubs", "Spades"};
+
+  char *face[FACES] =
+    {"Ace", "Deuce", "Three", "Four",
+     "Five", "Six", "Seven", "Eight",
+     "Nine", "Ten", "Jack", "Queen", "King"};
+
+  deal(deck, face, suit);
+}
+
+void shuffle(unsigned int wDeck[][FACES])
+{
+  for (size_t card = 1; card <= CARDS; card++) {
+    size_t row;
+    size_t column;
+
+    do {
+      row = rand() % SUITS;
+      column = rand() % FACES;
+    } while(wDeck[row][column] != 0);
+
+    wDeck[row][column] = card;
+  }
+}
+
+void deal(unsigned int wDeck[][FACES], char *face[],
+	  char *suit[])
+{
+  char *hand[10][2];
+  int sequence[10], order[10];
+  int rank1, rank2;
+  
+  for (size_t card = 1; card <= CARDS; ++card) {
+
+    for (size_t row = 0; row < SUITS; ++row) {
+
+      for (size_t column = 0; column < FACES; ++column) {
+
+	if (wDeck[row][column] == card) {
+
+	  if (card <= 10 ) {
+	    hand[card - 1][0] = face[column];
+	    hand[card - 1][1] = suit[row];
+	    sequence[card - 1] = column + 1;
+	    order[card - 1] = row;
+	  }
+	}
+      }
+    }
+  }
+  displayHand(&hand[0]);
+  rank1 = evaluate(&hand[0], face, suit, &sequence[0], &order[0]);  
+  displayHand(&hand[5]);  
+  rank2 = evaluate(&hand[5], face, suit, &sequence[5], &order[5]);
+}
+
+void displayHand(char *hand[][2])
+{
+  printf("\n%18s\n\n", "** Hand Dealt **");
+
+  for (size_t row = 0; row < 5; ++row) {
+
+    printf("%5s%s%-8s\n",  hand[row][0], " of ", hand[row][1]);
+  }  
+}
+
+int evaluate(char *hand[][2], char* face[], char *suit[], int sequence[], int order[])
+{
+  int result, max = 0;
+  
+  result = highCard(sequence, order, face, suit);
+
+  if (result > max) {
+    max = result;
+  }
+  
+  result = pair(hand);
+
+  if (result > max) {
+    max = result;
+  }
+  
+  result = twoPair(hand);
+
+  if (result > max) {
+    max = result;
+  }
+  
+  result = trips(hand);
+
+  if (result > max) {
+    max = result;
+  }
+  
+  result = straight(sequence, order, suit, face);
+
+  if (result > max) {
+    max = result;
+  }
+    
+  result = flush(hand);
+
+  if (result > max) {
+    max = result;
+  }
+    
+  result = fullHouse(hand);
+
+  if (result > max) {
+    max = result;
+  }
+
+  result = quads(hand);
+
+  if (result > max) {
+    max = result;
+  }
+  
+  result = straightFlush(hand);
+
+  if (result > max) {
+    max = result;
+  }
+  
+  result = royalFlush(hand);
+
+  if (result > max) {
+    max = result;
+  }
+
+  printf("Result: %d\n", max);
+  
+  /* hand[0][0] = "Ace"; */
+  /* hand[1][0] = "Three"; */
+  /* hand[2][0] = "Ace"; */
+  /* hand[3][0] = "Ace"; */
+  /* hand[4][0] = "Six"; */
+
+  /* hand[0][1] = "Diamonds"; */
+  /* hand[1][1] = "Diamonds"; */
+  /* hand[2][1] = "Diamonds"; */
+  /* hand[3][1] = "Diamonds"; */
+  /* hand[4][1] = "Diamonds"; */
+
+  /* sequence[0] = 5; */
+  /* sequence[1] = 6; */
+  /* sequence[2] = 2; */
+  /* sequence[3] = 3; */
+  /* sequence[4] = 4; */
+
+  /* order[0] = 1; */
+  /* order[1] = 0; */
+  /* order[2] = 0; */
+  /* order[3] = 0; */
+  /* order[4] = 0; */  
+}
+
+int highCard(int sequence[], int order[], char *face[], char *suit[])
+{
+  int highFace = 0, highSuit = 0;
+
+  for (size_t i = 0; i < 5; i++) {
+
+    if (sequence[i] == 1) {
+      highFace = sequence[i];
+      highSuit = order[i];
+      i = 5;
+    }
+    else {
+      
+      if (sequence[i] > highFace) {
+	highFace = sequence[i];
+	highSuit = order[i];
+      }
+    }
+  }
+  printf("\n%17s\n\n%5s%s%-8s\n", "** High Card **",
+	 face[highFace - 1],  " of ", suit[highSuit]);
+  return 1;
+}
+
+int pair(char *hand[][2])
+{
+  for (int pass = 0; pass < 5; pass++) {
+    
+    for (size_t face = 0; face < 5; face++) {
+
+      if (hand[pass][0] == hand[face][0] && pass != face) {
+	printf("\n%13s\n\n%5s%s%-8s\n%5s%s%-8s\n", "** Pair ** ",
+	       hand[pass][0], " of ", hand[pass][1],
+	       hand[face][0], " of ", hand[face][1]);
+	pass = face = 5;
+	return 2;
+      }
+    }
+  }
+  return 0;
+}
+
+int twoPair(char *hand[][2])
+{
+  char *firstPair, *secondPair;
+  char *firstPairFirstSuit, *firstPairSecondSuit;
+  char *secondPairFirstSuit, *secondPairSecondSuit;
+  int pair = 0;
+
+  for (int pass = 0; pass < 5; pass++) {
+    
+    for (size_t face = 0; face < 5; face++) {
+
+      if (hand[pass][0] == hand[face][0] && pass != face) {
+
+	if (pair == 0) {
+	
+	  firstPair = hand[pass][0];
+	  pair++;
+	  firstPairFirstSuit = hand[pass][1];
+	  firstPairSecondSuit = hand[face][1];	  
+	}
+      
+	if (hand[pass][0] != firstPair && pair == 1) {
+	  secondPair = hand[pass][0];
+	  secondPairFirstSuit = hand[pass][1];
+	  secondPairSecondSuit = hand[face][1];	  	  
+	  printf("\n%14s\n\n%5s%s%-8s\n%5s%s%-8s\n\n%9s\n\n%5s%s%-8s\n%5s%s%-8s\n",
+		 "** Two Pair ** ",
+		 firstPair, " of ", firstPairFirstSuit,
+		 firstPair, " of ", firstPairSecondSuit, " and ",
+		 secondPair, " of ", secondPairFirstSuit,
+		 secondPair, " of ", secondPairSecondSuit);
+	  pair++;
+	  return 3;
+	}
+      }
+    }  
+  }
+  return 0;
+}
+
+
+int trips(char *hand[][2])
+{
+  int trips = 0;
+  
+  for (int pass1 = 0; pass1 < 5; pass1++) {
+
+    for (int pass2 = 0; pass2 < 5; pass2++) {    
+    
+      for (size_t face = 0; face < 5; face++) {
+
+	if (hand[pass1][0] == hand[pass2][0] && hand[pass1][0] == hand[face][0] &&
+	    pass1 != face && pass2 != face && pass1 != pass2 && trips == 0) {	
+	  printf("\n%14s\n", "** Trips ** ");
+	  printf("\n%5s%s%-8s\n%5s%s%-8s\n%5s%s%-8s\n",
+		 hand[pass1][0], " of ", hand[pass1][1],
+		 hand[pass2][0], " of ", hand[pass2][1],
+		 hand[face][0], " of ", hand[face][1]);
+	  trips++;
+	  return 4;
+	}
+      }
+    }
+  }
+  return 0;
+}
+
+int straight(int sequence[], int order[], char *suit[], char *face[])
+{
+  int straight = 1;
+  int temp;
+  int min, max;
+
+  for (int i = 0; i < 4; i++) {
+
+    for (size_t j = 0; j < 4; j++) {
+
+      if (sequence[j] > sequence[j + 1]) {
+
+	temp = sequence[j];
+	sequence[j] = sequence[j + 1];
+	sequence[j + 1] = temp;
+
+	temp = order[j];
+	order[j] = order[j + 1];
+	order[j + 1] = temp;
+      }
+    }
+    min = sequence[0];
+    max = sequence[4];
+  }
+  puts("");
+
+  for (int i = 0; i < 4; i++) {
+
+    if (sequence[i] + 1 == sequence[i + 1]) {
+      straight++;
+    }
+
+    if (straight == 4 && min == 1 && max == 13) {
+      straight++;
+    }
+      
+    if (straight == 5) {
+      printf("\n%16s\n", "** Straight **");
+      printf("\n%5s%s%-8s\n%5s%s%-8s\n%5s%s%-8s\n%5s%s%-8s\n%5s%s%-8s\n",
+	     face[sequence[0] - 1], " of ", suit[order[0]],
+      	     face[sequence[1] - 1], " of ", suit[order[1]],
+	     face[sequence[2] - 1], " of ", suit[order[2]],
+	     face[sequence[3] - 1], " of ", suit[order[3]],
+	     face[sequence[4] - 1], " of ", suit[order[4]]);
+      i = 4;
+      return 5;
+    }
+  }
+  return 0;
+}
+
+int flush(char *hand[][2])
+{
+  int flush = 0;
+  
+  for (int pass1 = 0; pass1 < 5; pass1++) {
+
+    for (int pass2 = 0; pass2 < 5; pass2++) {    
+
+      for (int pass3 = 0; pass3 < 5; pass3++) {
+
+        for (int pass4 = 0; pass4 < 5; pass4++) {
+
+	  for (size_t suit = 0; suit < 5; suit++) {
+
+	    if (hand[pass1][1] == hand[pass2][1] &&
+		hand[pass2][1] == hand[pass3][1] &&
+		hand[pass3][1] == hand[pass4][1] &&
+		hand[pass4][1] == hand[suit][1] &&
+		pass1 != suit && pass2 != suit && pass3 != suit && pass4 != suit &&
+		pass1 != pass2 && pass2 != pass3 && pass3 != pass4 &&
+		pass1 != pass3 && pass1 != pass4 && pass2 != pass4 &&
+		flush == 0) {	
+	      printf("\n%14s\n", "** Flush ** ");
+	      printf("\n%5s%s%-8s\n%5s%s%-8s\n%5s%s%-8s\n%5s%s%-8s\n%5s%s%-8s\n",
+		     hand[pass1][0], " of ", hand[pass1][1],
+		     hand[pass2][0], " of ", hand[pass2][1],
+		     hand[pass3][0], " of ", hand[pass3][1],
+		     hand[pass4][0], " of ", hand[pass4][1],		     
+		     hand[suit][0], " of ", hand[suit][1]);	  
+	      flush++;
+	      return 6;
+	    }
+	  }
+	}
+      }
+    }
+  }
+  return 0;
+}
+
+int fullHouse(char *hand[][2])
+{
+  return 0;
+}
+
+int quads(char *hand[][2])
+{
+  int quads = 0;
+  
+  for (int pass1 = 0; pass1 < 5; pass1++) {
+
+    for (int pass2 = 0; pass2 < 5; pass2++) {    
+
+      for (int pass3 = 0; pass3 < 5; pass3++) {
+      
+	for (size_t face = 0; face < 5; face++) {
+
+	  if (hand[pass1][0] == hand[pass2][0] &&
+	      hand[pass1][0] == hand[pass3][0] &&
+	      hand[pass1][0] == hand[face][0] &&
+	      pass1 != face && pass2 != face && pass3 != face &&
+	      pass1 != pass2 && pass2 != pass3 && pass1 != pass3 &&
+	      quads == 0) {	
+	    printf("\n%14s\n", "** Quads ** ");
+	    printf("\n%5s%s%-8s\n%5s%s%-8s\n%5s%s%-8s\n%5s%s%-8s\n",
+		   hand[pass1][0], " of ", hand[pass1][1],
+		   hand[pass2][0], " of ", hand[pass2][1],
+		   hand[pass3][0], " of ", hand[pass3][1],
+		   hand[face][0], " of ", hand[face][1]);	  
+	    quads++;
+	    return 8;
+	  }
+	}
+      }
+    }
+  }
+  return 0;
+}
+
+int straightFlush(char *hand[][2])
+{
+  return 0;
+}
+
+int royalFlush(char *hand[][2])
+{
+  return 0; 
+}
+
