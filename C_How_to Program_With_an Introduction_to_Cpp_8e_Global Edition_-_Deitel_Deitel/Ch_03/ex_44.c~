@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main( void )
+{
+  int a, b, c, aSquared, bSquared, cSquared;
+
+  puts( "Enter the values for the sides of a right angled triangle" );
+  puts( "and I will tell you if they are valid:" );
+  scanf( "%d%d%d", &a, &b, &c );
+
+  aSquared = a * a;
+  bSquared = b * b;
+  cSquared = c * c;
+
+  if( aSquared == bSquared + cSquared ) {
+    puts( "The triangle is valid." );
+  }
+  if( bSquared == cSquared + aSquared ) {
+    puts( "The triangle is valid." );
+  }
+  if( cSquared == aSquared + bSquared ) {
+    puts( "The triangle is valid." );
+  }
+}

@@ -1,0 +1,348 @@
+10. a) if ( sales >= 5000 ) {
+         puts( "Sales are greater than $5000" );
+       }
+       else {
+         puts( "Sales are less than $5000" );
+       }
+       - greater or equal than operator was incorrect (=>): change
+       - semi-colons absent at the end of each statment: add
+    b) int x = 1, product = 0;
+
+       while ( x <= 10 ) {
+         product *= x;
+	 product++;
+       }
+       - semi-colon present after the condition in the while loop: remove
+    c) while ( x <= 100 ) {
+         total =+ x;
+	 ++x;
+       }
+       - keyword 'while' spelled with capital W: change
+       - braces absent around the loop's statements: add
+    d) while ( y < 10 ) {
+         printf( "%d\n", y );
+       }
+       - no iteration statement for y: add
+       
+11. a) sequential execution
+    b) Pseudocode
+    c) sequence, selection, iteration
+    d) square rectangles, rounded rectangles, diamonds, circles
+    e) order
+    f) switch
+    g) conditional, first, second, third
+    h) selection
+
+12. #include <stdio.h>
+
+    int main ( void ) {
+
+    int y;
+    int x = 1;
+    int total = 0;
+
+    while ( x <= 10 ) {
+      y = x * x * x;
+      printf( "%d\n", y );
+      total += y;
+      ++x
+    }
+
+    printf( "The total is %d\n", total );
+
+    }
+    - This program prints the cubes of the first ten natural numbers
+
+13. a) Prompt the user to enter their name with "Enter your name"
+    b) Determine the product of a, b and c and assign to p
+    c) If x < y, assign 10 to x, otherwise assign 20 to x
+    d) Prompt user to enter values for a, b, c and d
+
+14. a) Obtain three numbers from the keyboard, compute their product and
+       display the result
+
+       Input numbers a, b, and c
+       Compute the product of a, b and c
+       Print the product
+
+    b) Obtain two numbers from the keyboard, and determine and display
+       which (if either) is the smaller of the two numbers
+
+       Input two numbers a and b
+       Determine which (if either) is smaller
+       Display the smaller number
+
+       Input two numbers a and b
+       If a is smaller than b
+         Print "a is the smaller number"
+       Else
+         If b is smaller than a
+           Print "b is the smaller number"
+         Else
+	   Print "Both numbers are the same"
+    c) Obtain a series of positive numbers from the keyboard, and determine and
+       display their average. Assume that the user types the sentinel value -1
+       to indicate "end of data entry".
+
+       Input a series of positive numbers
+       Determine their average
+
+       Initialize variable 'average' to zero
+       Initialise variable sum t0 zero
+       Initialize variable num
+       
+       Print "Enter a positive number (-1 to end)"
+         Input a number (num)
+       While sentinel is not -1
+         Print "Enter a positive number (-1 to end)"
+	 Input a number (num)
+         Add number (num )to sum
+	 Calculate average
+
+       If no numbers entered, print "No numbers entered"
+       Print average
+
+15. a) False. It is necessary to specify to order of actions taken in an
+       algorithm, because sequence control is an important aspect of algorithm
+       design
+    b) True
+    c) True
+    d) True
+    e) True
+
+16. Input monthly sales for a business, and determine and display monthly sales
+    tax at both county and state levels
+
+    Input monthly sales
+    Calculate state and county tax
+    Display both county and state taxes owed
+
+    Initialise variables
+    
+    Input month
+    Input total sales
+    
+    Calculate state tax
+    Calculate county tax
+    Print total income
+    Print total sales
+    Print total tax
+    Print state tax owed
+    Print county tax owed
+
+    Initialise total sales
+    Initialise total income
+    Initialise total tax
+    Initialise state tax
+    Initialise county tax
+    Initialise month
+
+    Input total income, with sentinel (-1)
+    Input month
+
+    Calculate total sales
+    Calculate total state tax
+    Calculate total county tax
+    Calculate total tax
+
+    Display total income
+    Display total sales
+    Display county tax
+    Display state tax
+    Display total tax
+    
+    Initialise total sales
+    Initialise total income
+    Initialise total tax
+    Initialise state tax
+    Initialise county tax
+    Initialise month
+
+    Input total income, or sentinel
+
+    While sentinel is not (-1)
+
+      Calculate total sales
+      Calculate total state tax
+      Calculate total county tax
+      Calculate total tax
+      
+      Input total sales, or sentinel
+      Input month
+
+    Display total income
+    Display total sales
+    Display county tax
+    Display state tax
+    Display total tax
+
+17. Develop a program to calculate the interest accured on a bank customers
+    morgage
+    
+    Input variables
+    Calculate mortage repayments
+    Display payment information
+
+    Initialise variables
+
+    Input account number
+    Input mortgage amount
+    Input mortgage term
+    Input interest rate
+
+    Calculate interest payments
+
+    Display payable interest
+
+    Initialise account number
+    Initialise mortgage amount
+    Initialse mortgage term
+    Initialise interest rate
+    Initialise payable interest
+
+    Input account number (prompt for sentinel)
+    While account number is not sentinel (-1)
+      Input mortgage amount
+      Input mortgage term
+      Input interest rate
+
+      Calculate payable interest
+      Print payable interest
+
+      Input account number (prompt for sentinel)
+
+18. Determine a salesperson's gross sales, and calculate their total earnings
+
+    Input gross sales
+    Calculate commission
+    Display total earnings
+
+    Initialise weekly pay
+    Initialise commission
+    Initialise commission rate
+    Initialise total earnings
+
+    Input sales (prompt for sentinel)
+
+    While sales is not equal to sentinel (-1)
+      Total earnings = weekly pay + commission rate * gross sales
+      Print total earnings
+
+      Input sales (prompt for sentinel)
+
+19. Calculate and display simple interest for a loan
+
+    Initialise variables
+    Calculate interest
+    Display interest
+
+    Initialise principal
+    Initialise rate
+    Initialise days
+    Initialise interest
+
+    Input principal (prompt for sentinel)
+
+    While principal is not -1
+      interest = principal times rate times days,
+                 divided by 365
+      Print interest
+
+     Input principal (prompt for sentinel)
+
+20. Determine total pay for an employee, including overtime
+
+    Initialise variables
+    Input pay information
+    Calculate pay
+    Display salary
+
+    Initialise hourly rate
+    Initialise total hours worked
+    Initialise overtime
+    Initialise total pay
+
+    Input hours worked (prompt for sentinel)
+    While hours worked not equal to sentinel
+      if( hours worked > 40 )
+        overtime = (total hours - 40 ) * hourly rate * 1.5
+	total pay = overtimes + hours worked * hourly rate
+      else
+        total pay = hours worked * hourly rate
+
+      print salary
+
+      Input hours worked (prompt for sentinel)
+    
+21. See ex_21.c
+
+22. See ex_22.c
+
+23. See ex_23.c and below
+
+    Enter ten numbers and display the largest
+
+    Initialise variables
+    Calculate largest number
+    Display largest number
+
+    Initialise counter to zero
+    Initialise number
+    Initialise largest to zero
+
+    Input a number
+    While counter is less than ten
+      If number is larger than largest
+        Set number equal to largest
+      Increment counter
+
+    Print largest number
+
+24. See ex_24.c
+
+25. See ex_25.c
+
+26. See ex_26.c
+
+27. See ex_27.c
+
+28. As it is, the program will not compile as the variable total is not
+    defined. If that mistake is corrected (it is likely that the variable y
+    was intended to be used instead of total, so make total equal y), the
+    program prints the sum of the squares of the first five integers.
+    See ex_28.c
+
+29. This program prints a right angled triangle made up of asteisks, ten by
+    ten.
+    See ex_29.c
+
+30. a) For x = 9, y = 11, the output will be
+
+       *****
+       &&&&&
+       
+       For x = 11, y = 9, the output will be
+
+       &&&&&
+       
+       See ex_30a.c
+    b) For x = 9, y = 11, the output will be
+
+       #####
+       &&&&&
+
+       For x = 11, y = 9, the output will be
+
+       *****
+       
+       See ex_30b.c
+
+31. See ex_31.c
+
+32. See ex_32.c
+
+33. See ex_33.c
+
+34. See ex_34.c
+
+35. See ex_35.c
