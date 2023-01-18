@@ -1,0 +1,6 @@
+#includ3 <stdio.h>
+
+int main(void)
+{
+  int [][] = {{1,2},{3,4}};
+}

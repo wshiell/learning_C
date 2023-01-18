@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#define SIZE 10
+#define MAX 100
+
+int main(void) {
+
+  int array[SIZE];
+
+  for (int count = 0; count < SIZE; count++) {
+
+    srand(time(NULL));
+
+    array[i] = rand() % MAX;
+  }
+
+  puts"Unsorted array");
+
+  for (int count = 0; count < SIZE; count++) {
+    printf("array[%d] = %d\n", count, array[count]);
+
+  for (int count = 0; count < SIZE; count++) {
+    int hold;
+    int smallest = MAX;
+
+    if (array[i] <= array[0]) {
+      hold = array[0];
+      array[0] = array[i];
+      array[i] = hold;
+    }
+  }
+
+  puts"Sorted array");
+
+  for (int count = 0; count < SIZE; count++) {
+    printf("array[%d] = %d\n", count, array[count]);
+  }
+}

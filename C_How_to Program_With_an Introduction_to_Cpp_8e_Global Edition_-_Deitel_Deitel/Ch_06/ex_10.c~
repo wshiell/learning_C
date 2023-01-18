@@ -1,0 +1,55 @@
+#include <stdio.h>
+#define SIZE 10
+
+int main(void)
+{
+  int gross;
+  int salesBracket[SIZE] = {0};
+  int grossSales[SIZE];
+  float commission;
+
+  puts("Enter gross sales:");
+  scanf("%d", &gross);
+
+  for (int sales = 0; sales < SIZE; sales++) {
+
+    commission = 200 + gross * .09;
+    grossSales[sales] = commission;
+    
+    puts("Enter gross sales:");
+    scanf("%d", &gross);
+  }
+
+  for (int bracket = 0; bracket < 9; bracket++) {
+    
+    for (int sales = 0; sales < SIZE; sales++) {
+
+      if (200 + 100 * bracket <= grossSales[sales] && grossSales[sales]< 300 + 100 * bracket) {
+	salesBracket[bracket]++;
+	printf("*");
+      }
+      else {
+	
+	salesBracket[9]++;
+
+      }
+    }
+
+    puts("");
+  }
+
+  for (int sales = 0; sales < SIZE; sales++) {
+    printf("Commission: %d\n", grossSales[sales]);
+  }
+  
+  for (int bracket = 0; bracket < 9; bracket++) {
+    if (bracket < 8) {
+    printf("Number of salespeople who earned between $%d and $%d: %d\n",
+	   200 + 100 * bracket, 300 + 100 * bracket, salesBracket[bracket]);
+    }
+    else {
+    printf("Number of salespeople who earned over $1000: %d\n", salesBracket[bracket]);
+    }
+  }
+  puts("");
+}
